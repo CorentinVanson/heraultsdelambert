@@ -18,3 +18,9 @@ body {
 ::-webkit-scrollbar-thumb {
   @apply bg-secondary-200 rounded-[20px] border-[3px] border-solid border-transparent;
 }
+
+@media (width >= 768px) {
+  .md\:w-3\/4 {
+    width: 75%;
+  }
+}

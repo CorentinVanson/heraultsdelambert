@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ui-example-nativewind",
-    "slug": "ui-example-nativewind",
+    "name": "Héraults de Lambert",
+    "slug": "Héraults de Lambert",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -41,6 +41,9 @@
     },
     "updates": {
       "url": "https://u.expo.dev/42cce9b5-9fbe-4572-92ba-fc43b2437a85"
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
