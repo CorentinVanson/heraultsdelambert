@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "cross-env DARK_MODE=media expo run:android",
     "ios": "cross-env DARK_MODE=media expo run:ios",
-    "web": "cross-env DARK_MODE=media expo start --web"
+    "web": "cross-env DARK_MODE=media expo start --web",
+    "build:web": "expo export -p web"
   },
   "dependencies": {
     "@expo-google-fonts/estonia": "^0.4.1",
