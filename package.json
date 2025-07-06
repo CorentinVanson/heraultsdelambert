@@ -1,14 +1,15 @@
 {
-  "name": "ui-example-nativewind",
+  "name": "Héraults de Lambert",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "android": "DARK_MODE=media expo run:android",
-    "ios": "DARK_MODE=media expo run:ios",
-    "web": "DARK_MODE=media expo start --web"
+    "android": "cross-env DARK_MODE=media expo run:android",
+    "ios": "cross-env DARK_MODE=media expo run:ios",
+    "web": "cross-env DARK_MODE=media expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/estonia": "^0.4.1",
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo/config-plugins": "~9.0.0",
     "@expo/html-elements": "^0.4.2",
@@ -45,6 +46,7 @@
     "@legendapp/motion": "^2.4.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "expo": "52.0.11",
+    "expo-font": "~13.0.4",
     "expo-linking": "~7.0.3",
     "expo-status-bar": "~2.0.0",
     "expo-updates": "~0.26.9",
@@ -63,6 +65,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/react": "~18.3.12",
+    "cross-env": "^7.0.3",
     "jscodeshift": "^0.15.2",
     "typescript": "~5.3.3"
   },

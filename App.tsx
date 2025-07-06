@@ -1,7 +1,9 @@
 import "./global.css";
 import React from "react";
-import HomestayPage from "./kitchensink-components/HomestayPage";
+import HeraultsPage from "./heraults-components/HeraultsPage";
 import { SafeAreaView, GluestackUIProvider } from "./components/ui";
+import { useFonts, Estonia_400Regular } from '@expo-google-fonts/estonia';
+
 import * as Linking from "expo-linking";
 
 let defaultTheme: "dark" | "light" = "light";
@@ -24,6 +26,10 @@ export default function App() {
   const [colorMode, setColorMode] = React.useState<"dark" | "light">(
     defaultTheme
   );
+  
+  useFonts({
+    Estonia_400Regular,
+  });
 
   const toggleColorMode = async () => {
     setColorMode((prev) => (prev === "light" ? "dark" : "light"));
@@ -43,7 +49,7 @@ export default function App() {
               colorMode === "light" ? "bg-white" : "bg-[#171717]"
             } flex-1 overflow-hidden`}
           >
-            <HomestayPage />
+            <HeraultsPage />
           </SafeAreaView>
         </GluestackUIProvider>
       </ThemeContext.Provider>
