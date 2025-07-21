@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StatusBar } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import { Box, Center, Grid, GridItem, Spinner } from "../../components/ui";
 import { ThemeContext } from "@/App";
+import { getGames } from "@/api/game";
 import Game, { GameDto } from "../Game";
 import colors from "tailwindcss/colors"
 
@@ -10,14 +11,14 @@ const ConvensionInscriptionPage = () => {
   const [ games, setGames ] = useState<GameDto[]>([]);
   const [ loading, setLoading ] = useState<boolean>(false);
 
-  const getGames = async () => {
+  const getAllGames = async () => {
     setLoading(true);
-    setGames(await (await fetch("http://localhost:3000/api/games")).json() as unknown as GameDto[]);
+    setGames(await getGames());
     setLoading(false);
   }
 
   useEffect(() => {
-    getGames()
+    getAllGames()
   }, [])
 
   return (
@@ -43,7 +44,7 @@ const ConvensionInscriptionPage = () => {
                   _extra={{
                     className: "col-span-1",
                   }}>
-                  <Game updateGames={getGames} game={game} key={`${game.name}-${game.dateStart}:${game.timeStart}-${game.timeEnd}`}/>
+                  <Game updateGames={getAllGames} game={game} key={`${game.name}-${game.dateStart}:${game.timeStart}-${game.timeEnd}`}/>
                 </GridItem>
               )
             }
