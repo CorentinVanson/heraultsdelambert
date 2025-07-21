@@ -13,6 +13,7 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https:
 export const authorizeSheet = defineCachedFunction(async (event?) => {
   const { isProduction } = useRuntimeConfig(event);
   const CREDENTIALS_PATH = isProduction === 'false' ? path.join(process.cwd(), 'credentials.json') : "/etc/credentials.json";
+  console.log(require(CREDENTIALS_PATH));
   const client = new google.auth.GoogleAuth({
       keyFile: CREDENTIALS_PATH,
       scopes: SCOPES,
