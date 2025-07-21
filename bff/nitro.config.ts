@@ -2,6 +2,6 @@
 export default defineNitroConfig({
   srcDir: "server",
   runtimeConfig: {
-    production: false,
+    production: true,
   }
 });
