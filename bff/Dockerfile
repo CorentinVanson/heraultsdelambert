@@ -3,7 +3,7 @@ WORKDIR /build
 COPY package.json package-lock.json ./
 RUN npm install
 COPY ./ ./
-RUN npm build
+RUN npm run build
 
 FROM node:alpine
 WORKDIR /app
