@@ -1,4 +1,3 @@
-import { authorizeSheet } from "#imports";
 import {google} from "googleapis";
 
 export const addPlayer = async ({ id, pseudo, mail, phone }) => {
