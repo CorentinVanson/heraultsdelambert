@@ -10,5 +10,5 @@ RUN npm run build:web
 FROM nginx:stable-alpine AS production
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/
-EXPOSE 8080
+EXPOSE 3001
 CMD ["nginx", "-g", "daemon off;"]
