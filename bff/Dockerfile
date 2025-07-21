@@ -1,6 +1,6 @@
 FROM node:alpine as BUILD
 WORKDIR /build
-COPY package.json pnpm-lock.yaml ./
+COPY package.json package-lock.json ./
 RUN npm install
 COPY ./ ./
 RUN npm build
