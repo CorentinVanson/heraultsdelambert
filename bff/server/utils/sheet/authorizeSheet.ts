@@ -8,7 +8,6 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https:
  *
  */
 export const authorizeSheet = defineCachedFunction(async (event?) => {
-  console.log(useRuntimeConfig(event))
   const { sheetCredentialsEmail, sheetCredentialsPrivateKey } = useRuntimeConfig(event);
   const client = new google.auth.GoogleAuth({
       credentials: {
