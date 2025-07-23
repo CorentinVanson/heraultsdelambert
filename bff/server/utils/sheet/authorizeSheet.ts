@@ -1,6 +1,3 @@
-import path from "path";
-
-import process from "process";
 import {google} from "googleapis";
 
 // If modifying these scopes, delete token.json.
@@ -11,10 +8,13 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly', 'https:
  *
  */
 export const authorizeSheet = defineCachedFunction(async (event?) => {
-  const { isProduction } = useRuntimeConfig(event);
-  const CREDENTIALS_PATH = isProduction === 'false' ? path.join(process.cwd(), 'credentials.json') : "/etc/credentials.json";
+  console.log(useRuntimeConfig(event))
+  const { sheetCredentialsEmail, sheetCredentialsPrivateKey } = useRuntimeConfig(event);
   const client = new google.auth.GoogleAuth({
-      keyFile: CREDENTIALS_PATH,
+      credentials: {
+        client_email: sheetCredentialsEmail,
+        private_key: sheetCredentialsPrivateKey,
+      },
       scopes: SCOPES,
   });
   return client;
