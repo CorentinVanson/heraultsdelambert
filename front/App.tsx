@@ -1,31 +1,23 @@
 import "./global.css";
 import React from "react";
 import { Box, GluestackUIProvider, SafeAreaView } from "./components/ui";
-import { useFonts, Estonia_400Regular } from '@expo-google-fonts/estonia';
+import { useFonts, Grenze_600SemiBold } from '@expo-google-fonts/grenze';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import * as Linking from "expo-linking";
 import Header from "./heraults-components/Header";
 import Banner from "./heraults-components/Banner";
-import { Star } from "lucide-react-native";
 import HeraultsPage from "./heraults-components/page/HeraultsPage";
 import ConvensionInscriptionPage from "./heraults-components/page/ConvensionInscriptionPage";
+import { Loader } from "lucide-react-native";
+import { ThemeContext } from "./colorMode";
 
 let defaultTheme: "dark" | "light" = "light";
 
 Linking.getInitialURL().then((url: any) => {
   let { queryParams } = Linking.parse(url) as any;
   defaultTheme = queryParams?.iframeMode ?? defaultTheme;
-});
-
-type ThemeContextType = {
-  colorMode?: "dark" | "light";
-  toggleColorMode?: () => void;
-};
-export const ThemeContext = React.createContext<ThemeContextType>({
-  colorMode: "light",
-  toggleColorMode: () => {},
 });
 
 const Stack = createNativeStackNavigator();
@@ -43,19 +35,24 @@ const linking = {
 }
 
 export default function App() {
-  const showBanner = true;
+  const showBanner = false;
 
   const [colorMode, setColorMode] = React.useState<"dark" | "light">(
     defaultTheme
   );
   
-  useFonts({
-    Estonia_400Regular,
+  const [fontsLoaded] = useFonts({
+    Grenze_600SemiBold,
   });
 
   const toggleColorMode = async () => {
     setColorMode((prev) => (prev === "light" ? "dark" : "light"));
   };
+
+
+  if (!fontsLoaded) {
+    return <Loader />
+  }
 
   return (
     <>
@@ -68,15 +65,7 @@ export default function App() {
                 name="Home"
                 component={HeraultsPage}
                 options={{
-                  header: () => 
-                    <SafeAreaView
-                      className={`${colorMode === "light" ? "bg-[#E5E5E5]" : "bg-[#262626]"}`}
-                    >
-                      <Box className={`w-full flex`}>
-                        {showBanner && <Banner />}
-                        <Header />
-                      </Box>
-                    </SafeAreaView>,
+                  header: () => <Header showBanner={showBanner}/>,
                   title: 'Les Héraults de Lambert',
                 }}
 
@@ -85,14 +74,7 @@ export default function App() {
                 name="Inscription"
                 component={() => <ConvensionInscriptionPage />} 
                 options={{
-                  header: () => 
-                    <SafeAreaView
-                      className={`${colorMode === "light" ? "bg-[#E5E5E5]" : "bg-[#262626]"}`}
-                    >
-                      <Box className={`w-full flex`}>
-                        <Header />
-                      </Box>
-                    </SafeAreaView>,
+                  header: () => <Header showBanner={false} />,
                   title: 'Les Héraults de Lambert',
                 }}
               />

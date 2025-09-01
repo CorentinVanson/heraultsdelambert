@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Box, Image, Link } from "@/components/ui";
-import { ThemeContext } from "@/App";
+import { ThemeContext } from "@/ColorMode";
 import { useNavigation } from "@react-navigation/native";
 
 const HeraultsLogo = () => {
@@ -12,7 +12,7 @@ const HeraultsLogo = () => {
         <Image
           source={require("../../assets/logo.svg")}
           alt="Heraultslogo"
-          className="h-[100px] w-[100px]"
+          className="h-[50px] w-[50px] md:h-[100px] md:w-[100px]"
         />
       </Link>
     </Box>

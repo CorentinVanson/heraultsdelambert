@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Icon, MoonIcon, SunIcon, Pressable } from "../../components/ui";
-import { ThemeContext } from "../../App";
+import { ThemeContext } from "@/ColorMode";
 
 const ToggleMode = () => {
   const { colorMode, toggleColorMode } = useContext(ThemeContext);
   return (
-    <Pressable onPress={toggleColorMode}>
+    <Pressable onPress={toggleColorMode} className="invisible md:visible">
       <Icon
         as={colorMode === "dark" ? SunIcon : MoonIcon}
         size="xl"

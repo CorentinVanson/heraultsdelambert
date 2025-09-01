@@ -24,3 +24,8 @@ body {
     width: 75%;
   }
 }
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgb(var(--color-primary-700));
+  color: transparent;
+}

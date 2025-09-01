@@ -1,44 +1,66 @@
-import React from "react";
+import React, { useRef, useMemo } from "react";
+import { Canvas, useFrame } from '@react-three/fiber'
+import * as THREE from 'three'
+
 import {
   Box,
-  Heading,
+  Button,
+  ButtonText,
   HStack,
-  Image,
 } from "../../components/ui";
+
+  function D20() {
+      const ref = useRef<THREE.Mesh>(null);
+      useFrame(() => {
+          if (ref.current) {
+              ref.current.rotation.x += 0.005;
+              ref.current.rotation.y += 0.005;
+          }
+      });
+
+      const geometry = useMemo(() => new THREE.IcosahedronGeometry(2), []);
+      const material = useMemo(() => new THREE.MeshStandardMaterial({
+          color: '#273840',
+          roughness: 0.8,
+          metalness: 0.2
+      }), []);
+
+      return (
+          <mesh ref={ref} geometry={geometry} material={material} />
+      );
+  }
+
+  function Scene() {
+      return (
+          <>
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[1, 1, 1]} intensity={5} />
+              <D20 />
+          </>
+      );
+  }
 
 const HeraultsHomeFold = () => {
   return (
     <Box className="w-full flex items-center">
-      <Image 
-        className="absolute -z-10 w-full h-full border-b border-white opacity-30"
-        source={require("../../assets/dark-knight.png")}/>
-      <Box className="w-full md:w-3/4 flex-1 md:h-[calc(100vh-144px)] md:pr-12 md:pl-12 overflow-auto py-32">
-        <Box className="pt-6 pb-2.5 px-8 md:px-20" id="home">
-          <HStack className="w-full justify-around">
-            <Heading size="xl" className="drop-shadow-md text-center text-6xl" style={{ fontFamily: 'Estonia_400Regular'}}>Bienvenue</Heading>
-          </HStack>
+        <Box className="relative h-[100vh] overflow-hidden flex flex-col items-center justify-center w-full">
+            <Canvas className="absolute top-0 left-0 w-full h-full -z-10">
+              <Scene />
+            </Canvas>
+            <div className="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-t from-herault-bg-dark-transparent to-transparent"></div>
+            <Box className="absolute z-10 p-12 max-w-4xl text-center h-full flex justify-center">
+                <h1 className="grenze text-8xl leading-none text-white">Rejoignez l'aventure.</h1>
+                <p className="mt-4 text-2xl font-light text-white">Explorez de nouveaux mondes, créez des histoires épiques et rencontrez des passionnés de jeu de rôle et de jeu de plateau.</p>
+                <HStack className="mt-8 flex justify-center space-x-4">
+                  <Button className="bg-secondary-500 p-4 rounded-lg font-bold text-lg">
+                    <ButtonText>Adhérer</ButtonText>
+                  </Button>
+                  <Button className="bg-white p-4 rounded-lg font-bold text-lg">
+                    <ButtonText>Le club</ButtonText>
+                  </Button>
+                </HStack>
+            </Box>
         </Box>
-        <Box className="pt-6 pb-2.5 px-4 md:px-20" id="home-2">
-          <HStack className="w-full justify-around">
-            <Heading size="xl" className="drop-shadow-md text-center text-6xl" style={{ fontFamily: 'Estonia_400Regular'}}>chez les héraults</Heading>
-          </HStack>
-        </Box>
-        <Box className="pt-6 pb-2.5 px-4 md:px-20" id="home">
-          <HStack className="w-full justify-around">
-            <Heading size="md" className="drop-shadow-md text-center text-5xl" style={{ fontFamily: 'Estonia_400Regular'}}> 0ù les dés du destin rencontrent les pions de la stratégie</Heading>
-          </HStack>
-        </Box>
-        <Box className="pt-6 pb-2.5 px-4 md:px-20" id="home">
-          <HStack className="w-full justify-around">
-            <Heading size="md" className="drop-shadow-md text-center text-5xl" style={{ fontFamily: 'Estonia_400Regular'}}>tissant des contes épiques autour de tables conviviales !</Heading>
-          </HStack>
-        </Box>
-        <Box className="pt-6 pb-2.5 px-4 md:px-20" id="home">
-          <HStack className="w-full justify-around">
-            <Heading size="md" className="drop-shadow-md text-center text-5xl" style={{ fontFamily: 'Estonia_400Regular'}}> Venez donc, âmes aventureuses...</Heading>
-          </HStack>
-        </Box>
-      </Box>
     </Box>
   );
 };

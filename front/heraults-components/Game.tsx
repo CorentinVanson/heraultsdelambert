@@ -74,21 +74,20 @@ const Game = ({ game, updateGames }: GameProps) => {
         size="lg"
       >
         <ModalBackdrop />
-        <ModalContent>
+        <ModalContent className="bg-white">
           <ModalHeader>
-            <Heading size="md" className="text-typography-950">
+            <Heading size="md">
               Inscris-toi!
             </Heading>
             <ModalCloseButton>
               <Icon
                 as={CloseIcon}
                 size="md"
-                className="stroke-background-400 group-[:hover]/modal-close-button:stroke-background-700 group-[:active]/modal-close-button:stroke-background-900 group-[:focus-visible]/modal-close-button:stroke-background-900"
               />
             </ModalCloseButton>
           </ModalHeader>
           <ModalBody>
-            <Text size="sm" className="text-typography-500">
+            <Text size="sm">
               Merci de remplir ces informations pour envoyer ta demande d'inscription, les informations de contact seront utilisés qu'uniquement dans le cadre de l'organisation de la convention
             </Text>
                     
@@ -182,6 +181,7 @@ const Game = ({ game, updateGames }: GameProps) => {
               <ButtonText>Annuler</ButtonText>
             </Button>
             <Button
+              action="secondary"
               onPress={async () => {
                 let invalid = false;
                 if (!pseudoInputValue) {
