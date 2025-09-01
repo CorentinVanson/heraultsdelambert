@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Fab, FabIcon } from "../components/ui";
 import { Moon, Sun } from "lucide-react-native";
-import { ThemeContext } from "../App";
+import { ThemeContext } from "@/ColorMode";
 
 const MobileModeChangeButton = () => {
   const { colorMode, toggleColorMode } = useContext(ThemeContext);
