@@ -11,7 +11,7 @@ import Banner from "./heraults-components/Banner";
 import HeraultsPage from "./heraults-components/page/HeraultsPage";
 import ConvensionInscriptionPage from "./heraults-components/page/ConvensionInscriptionPage";
 import { Loader } from "lucide-react-native";
-import { ThemeContext } from "./colorMode";
+import { ThemeContext } from "./ColorMode";
 
 let defaultTheme: "dark" | "light" = "light";
 
