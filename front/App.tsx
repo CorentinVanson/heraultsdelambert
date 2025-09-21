@@ -7,11 +7,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import * as Linking from "expo-linking";
 import Header from "./heraults-components/Header";
-import Banner from "./heraults-components/Banner";
 import HeraultsPage from "./heraults-components/page/HeraultsPage";
 import ConvensionInscriptionPage from "./heraults-components/page/ConvensionInscriptionPage";
 import { Loader } from "lucide-react-native";
 import { ThemeContext } from "./ColorMode";
+import ClubPage from "./heraults-components/ClubPage";
+import LudothequePage from "./heraults-components/LudothequePage";
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -25,7 +26,9 @@ const Stack = createNativeStackNavigator();
 const config = {
   screens: {
     Home: '',
-    Inscription: 'convention/inscription',
+    Inscription: 'Inscription',
+    Club: 'Club',
+    Ludotheque: 'Ludotheque',
   },
 };
 
@@ -73,6 +76,22 @@ export default function App() {
               <Stack.Screen
                 name="Inscription"
                 component={() => <ConvensionInscriptionPage />} 
+                options={{
+                  header: () => <Header showBanner={false} />,
+                  title: 'Les Héraults de Lambert',
+                }}
+              />
+              <Stack.Screen
+                name="Club"
+                component={() => <ClubPage />} 
+                options={{
+                  header: () => <Header showBanner={false} />,
+                  title: 'Les Héraults de Lambert',
+                }}
+              />
+              <Stack.Screen
+                name="Ludotheque"
+                component={() => <LudothequePage />} 
                 options={{
                   header: () => <Header showBanner={false} />,
                   title: 'Les Héraults de Lambert',
