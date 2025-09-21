@@ -31,8 +31,8 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
         <Box className="fixed top-0 left-0 w-full z-20 flex justify-between items-center py-1 md:py-2 px-8 bg-herault-bg-light bg-opacity-90 backdrop-blur-sm shadow-md">
           <HStack className="w-full space-x-4 flex items-center">
             <HeraultsLogo/>
-            <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" href="">Le Club</Link>
-            <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" href="">Ludothèque</Link>
+            <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Club')}>Le Club</Link>
+            <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Ludotheque')}>Ludothèque</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Inscription')}>Convention</Link>
               <Link href="https://www.facebook.com/assojdrhdl" className="invisible md:visible">
                 <Icon
@@ -55,7 +55,7 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
                   className="stroke-background-700 w-5 h-5"
                 />
               </Link>
-              <ToggleMode />
+              { false && <ToggleMode /> /* TODO when darkmode is ready */ }
               <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
                 <ButtonText>Adhérer</ButtonText>
               </Button>

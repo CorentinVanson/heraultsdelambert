@@ -29,3 +29,15 @@ body {
   -webkit-text-stroke: 1px rgb(var(--color-primary-700));
   color: transparent;
 }
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FFA400;
+    border: 2px solid #273840;
+}
