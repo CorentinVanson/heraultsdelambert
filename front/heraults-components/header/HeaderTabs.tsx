@@ -4,7 +4,7 @@ import { Button, ButtonIcon, ButtonText, StarIcon, Link, ButtonGroup } from "../
 const HeaderTabs = () => {
   return (
       <ButtonGroup flexDirection="row" style={{flexDirection:"row"}}>
-        <Link href="https://www.helloasso.com/associations/heraults-de-lambert/adhesions/inscriptions-2022-2023">
+        <Link href="https://www.helloasso.com/associations/heraults-de-lambert/adhesions/inscriptions-2022-2023" isExternal>
           <Button size="md" variant="solid" action="primary">
             <ButtonIcon as={StarIcon}/>
             <ButtonText>Adhérer</ButtonText>
