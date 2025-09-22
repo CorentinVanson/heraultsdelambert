@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import {
   Button,
   ButtonText,
+  Link,
 } from "../../components/ui";
 import { ThemeContext } from "@/ColorMode";
 import { useNavigation } from "@react-navigation/native";
@@ -18,9 +19,9 @@ const HeraultsEvenementsFold = () => {
               <h2 className="text-7xl leading-tight text-stroke">Le Club</h2>
               <h3 className="text-4xl font-light my-6">Un lieu de rencontre et de passion</h3>
               <p className="text-lg">Les Héraults de Lambersart, c'est une association de jeu de rôle et de jeu de société. Notre objectif est de rassembler les passionnés de tous horizons, qu'ils soient débutants ou expérimentés, pour partager des moments de convivialité et d'aventure.</p>
-              <div className="mt-2">
-                <Button className="bg-primary-50 p-3 rounded-lg font-bold text-lg">
-                  <ButtonText>Découvrir le Club</ButtonText>
+              <div className="mt-2">                
+                <Button className="bg-primary-700 p-3 rounded-lg font-bold text-lg self-start" onPress={() => navigation.navigate('Club')}>
+                  <ButtonText className="text-primary-50">Découvrir le Club</ButtonText>
                 </Button> 
               </div>
           </div>
@@ -52,8 +53,14 @@ const HeraultsEvenementsFold = () => {
               <h2 className="text-6xl mb-4">La Ludothèque</h2>
               <p className="text-lg">Plus de 200 jeux de rôle et de société sont disponibles en prêt pour les membres de l'association. Des grands classiques aux dernières nouveautés, il y en a pour tous les goûts !</p>
               <div className="mt-6 flex space-x-4">
-                  <a href="#" className="btn-primary p-3 rounded-lg font-bold">Consulter la liste</a>
-                  <a href="#" className="btn-secondary p-3 rounded-lg text-[#F1F7ED] font-bold">Règles de prêt</a>
+                  <Link href="https://www.myludo.fr/#!/profil/les-heraults-de-lambert-46753" isExternal>
+                    <Button className="bg-primary-50 p-3 rounded-lg font-bold text-lg">
+                      <ButtonText>Consulter la liste</ButtonText>
+                    </Button> 
+                  </Link>
+                  <Button className="bg-primary-50 p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Ludotheque')}>
+                    <ButtonText>Règles de prêt</ButtonText>
+                  </Button> 
               </div>
           </div>
       </section>
@@ -63,9 +70,9 @@ const HeraultsEvenementsFold = () => {
               <h2 className="grenze text-6xl mb-4">La Convention</h2>
               <p className="text-lg">Chaque année, nous organisons une grande convention de jeu de rôle, avec des invités, des exposants et des parties uniques. Un rendez-vous incontournable pour la communauté.</p>
               <div className="mt-6">
-                  <Button className="bg-white p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Inscription')}>
-                    <ButtonText>Inscriptions Convention</ButtonText>
-                  </Button>
+                <Button className="bg-white p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Inscription')}>
+                  <ButtonText>Inscriptions Convention</ButtonText>
+                </Button>
               </div>
           </div>
       </section>

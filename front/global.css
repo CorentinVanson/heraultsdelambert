@@ -25,6 +25,15 @@ body {
   }
 }
 
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-33.33%);
+    }
+}
+
 .text-stroke {
   -webkit-text-stroke: 1px rgb(var(--color-primary-700));
   color: transparent;

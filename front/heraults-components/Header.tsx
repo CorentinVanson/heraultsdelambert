@@ -32,23 +32,24 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
           <HStack className="w-full space-x-4 flex items-center">
             <HeraultsLogo/>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Club')}>Le Club</Link>
+            <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Univers')}>Univers</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Ludotheque')}>Ludothèque</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 invisible md:visible" onPress={() => navigation.navigate('Inscription')}>Convention</Link>
-              <Link href="https://www.facebook.com/assojdrhdl" className="invisible md:visible">
+              <Link href="https://www.facebook.com/assojdrhdl" className="invisible md:visible" isExternal>
                 <Icon
                   as={Facebook}
                   size="xl"
                   className="stroke-background-700 w-5 h-5"
                 />
               </Link>
-              <Link href="https://www.instagram.com/heraultsdelambert/#" className="invisible md:visible">
+              <Link href="https://www.instagram.com/heraultsdelambert/#" className="invisible md:visible" isExternal>
                 <Icon
                   as={Instagram}
                   size="xl"
                   className="stroke-background-700 w-5 h-5"
                 />
               </Link>
-              <Link href="https://discord.com/invite/ezYdJ7RT9k" className="invisible md:visible">
+              <Link href="https://discord.com/invite/ezYdJ7RT9k" className="invisible md:visible" isExternal>
                 <Icon
                   as={MessageSquare}
                   size="xl"
@@ -56,10 +57,11 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
                 />
               </Link>
               { false && <ToggleMode /> /* TODO when darkmode is ready */ }
-              <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
-                <ButtonText>Adhérer</ButtonText>
-              </Button>
-
+              <Link href="https://www.helloasso.com/associations/heraults-de-lambert/adhesions/inscriptions-2022-2023" isExternal>
+                <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
+                  <ButtonText>Adhérer</ButtonText>
+                </Button>
+              </Link>
           </HStack>
         </Box>
       </Box>

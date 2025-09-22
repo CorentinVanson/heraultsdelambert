@@ -6,11 +6,18 @@ const ClubContent = () => {
     <>
       <section className="py-10 gap-16">
         <div className="flex flex-col lg:flex-row gap-8 justify-between">
-            <div className="">
+            <div className="basis-2/3">
               <h1 className="grenze text-7xl mb-4 text-[#273840]">Le Club des Héraults</h1>
-              <p className="text-xl font-light max-w-2xl">L'association a été fondée en 2018 par un groupe de passionnés de jeux de rôle souhaitant créer un espace convivial pour partager leur hobby. Depuis, l'association a grandi pour devenir un lieu de rencontre incontournable pour les joueurs de Lambersart.</p>
+              <p className="text-xl font-light">
+                Les Héraults de Lambert : votre dose de fun ludique (et sans prise de tête) à Lambersart ! Marre des soirées canapé ? Troquer votre plaid contre un set de dés et venez défier vos amis à coups de stratégies tordues !<br/>
+                Les Héraults de Lambert sont là pour vous ! Depuis Juin 1990, on est les pros du jeu de rôle et du jeu de plateau à Lambersart, près de Lille. On n’est pas sectaire : que vous soyez un vieux baroudeur des donjons ou que vous confondiez encore un dé à 20 faces avec une boule de Noël, vous êtes les bienvenus !<br/>
+                Chez nous, l’ambiance est simple : on joue, on rigole (souvent de nos défaites épiques) et on partage de bons moments. On se retrouve régulièrement pour nos sessions de jeu les Vendredi et Samedi.<br/>
+                Notre QG ? Le Centre Jules Maillot à Lambersart.<br/>
+                <br/>
+                Une fois par an nous lançons l’Appel des Héraults à la ferme du Mont Garin pour un week-end complet de jeu, de rencontres, d’activités et de convivialité.<br/>
+              </p>
             </div>
-            <div className="bg-primary-700 p-12 rounded-xl shadow-lg self-end flex-grow max-w-4xl">
+            <div className="bg-primary-700 p-12 rounded-xl shadow-lg self-end basis-1/3">
                 <h4 className="text-3xl mb-4 text-[#F1F7ED]">Informations pratiques</h4>
                 <ul className="space-y-4 text-[#F1F7ED]">
                     <li><span className="font-bold">Membres :</span> 50+ passionnés</li>
@@ -30,32 +37,21 @@ const ClubContent = () => {
             <div className="space-y-8">
                 <div className="relative timeline-item border-primary-700 border-l-2 pl-4 ml-4">
                     <div className="p-6 rounded-xl shadow-lg bg-primary-700 text-[#F1F7ED]">
-                        <h4 className="font-bold text-xl text-[#FFA400]">2018</h4>
-                        <p className="mt-2">Fondation de l'association par 10 passionnés de jeu de rôle. Création du local à Lambersart.</p>
-                    </div>
-                </div>
-                <div className="relative timeline-item border-primary-700 border-l-2 pl-4 ml-4">
-                    <div className="p-6 rounded-xl shadow-lg bg-primary-700 text-[#F1F7ED]">
-                        <h4 className="font-bold text-xl text-[#FFA400]">2019</h4>
-                        <p className="mt-2">Organisation de notre première convention de jeu de rôle. L'association compte 30 membres.</p>
-                    </div>
-                </div>
-                <div className="relative timeline-item border-primary-700 border-l-2 pl-4 ml-4">
-                    <div className="p-6 rounded-xl shadow-lg bg-primary-700 text-[#F1F7ED]">
-                        <h4 className="font-bold text-xl text-[#FFA400]">2021</h4>
-                        <p className="mt-2">Lancement de la ludothèque, avec plus de 50 jeux de société et de rôle disponibles en prêt.</p>
-                    </div>
-                </div>
-                <div className="relative timeline-item border-primary-700 border-l-2 pl-4 ml-4">
-                    <div className="p-6 rounded-xl shadow-lg bg-primary-700 text-[#F1F7ED]">
-                        <h4 className="font-bold text-xl text-[#FFA400]">2023</h4>
-                        <p className="mt-2">La convention annuelle attire plus de 300 visiteurs, avec des invités d'honneur et de nombreux exposants.</p>
+                        <h4 className="font-bold text-xl text-[#FFA400]">1991</h4>
+                        <p className="mt-2">
+                            1991 est l’année de création du club « Les Héraults de Lambert ». <br/>
+                            Vous l’aurez peut-être remarqué mais il y a une faute d’orthographe à Héraut (le héros moyen-âgeux) qui s’écrit normalement sans « l » (sinon c’est le département). C’est une erreur non-voulue lors de la déclaration du nom de l’association en mairie et vu que le nom était assez original, la faute a été assumée par le club. C’est un peu notre marque de fabrique désormais !
+                        </p>
                     </div>
                 </div>
                 <div className="relative timeline-item border-primary-700 border-l-2 pl-4 ml-4">
                     <div className="p-6 rounded-xl shadow-lg bg-primary-700 text-[#F1F7ED]">
                         <h4 className="font-bold text-xl text-[#FFA400]">2024</h4>
-                        <p className="mt-2">L'association dépasse les 50 membres et continue d'organiser des événements réguliers et des soirées thématiques.</p>
+                        <p className="mt-2">
+                            L’année du renouveau de l’association et du retour de la convention.<br/>
+                            Nouvelle charte graphique réalisée par Tondy. Un nouveau site réalisé par David.<br/>
+                            On peut dire que cette année a été mouvementée. D’ailleurs, la convention a désormais un nom : l’Appel des Héraults !<br/>
+                        </p>
                     </div>
                 </div>
             </div>

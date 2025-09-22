@@ -7,9 +7,12 @@ const LudothequeContent = () => {
     <>
       <section className="py-10 gap-16">
         <div className="flex flex-col lg:flex-row gap-8 justify-between">
-            <div className="">
+            <div className="basis-2/3">
               <h1 className="grenze text-7xl mb-4 text-[#273840]">La Ludothèque du Club</h1>
-              <p className="text-xl font-light max-w-2xl">La ludothèque est un espace dédié au jeu, à la découverte et au partage. Plus de 200 jeux sont disponibles en prêt pour les membres de l'association, du jeu de rôle au jeu de société.</p>
+              <p className="text-xl font-light">
+                La ludothèque est un espace dédié au jeu, à la découverte et au partage. Plus de 100 jeux sont disponibles en prêt pour les membres de l'association, du jeu de rôle au jeu de société.<br/>
+                L’association dispose d’une armoire à jeux contenant des livres de jeux de rôle et des jeux de société. Tout membre à jour de sa cotisation a la possibilité d’emprunter ces jeux en faisant enregistrer son emprunt auprès du bureau. 
+              </p>
             </div>
         </div>
       </section>
@@ -23,7 +26,7 @@ const LudothequeContent = () => {
                         <ul className="space-y-4 text-lg">
                             <li><span className="underline">Emprunt :</span> 2 jeux maximum à la fois.</li>
                             <li><span className="underline">Durée de prêt :</span> 1 mois pour les jeux de plateau, 2 mois pour les livres de JDR.</li>
-                            <li><span className="underline">Conditions :</span> L'emprunt est réservé aux membres de l'association.</li>
+                            <li><span className="underline">Conditions :</span> L'emprunt est réservé aux membres de l'association. Mais il n’est pas possible de s’inscrire à l’association uniquement pour profiter de sa ludothèque, le prêt de jeu reste un plus dont nous faisons profiter les membres, pas une activité à part entière</li>
                             <li><span className="underline">Renouvellement :</span> Le stock est mis en vente pour renouveler la collection.</li>
                             <li><span className="underline">Dons :</span> Nous acceptons les dons de jeux complets.</li>
                         </ul>
@@ -41,9 +44,11 @@ const LudothequeContent = () => {
                                 <DicesIcon 
                                     size={40}
                                     className="stroke-background-50" />
-                                <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
-                                    <ButtonText>Voir la liste des jeux</ButtonText>
-                                </Button>
+                                <Link href="https://www.myludo.fr/#!/profil/les-heraults-de-lambert-46753" isExternal>
+                                    <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
+                                        <ButtonText>Voir la liste des jeux</ButtonText>
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </div>

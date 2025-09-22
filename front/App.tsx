@@ -13,6 +13,7 @@ import { Loader } from "lucide-react-native";
 import { ThemeContext } from "./ColorMode";
 import ClubPage from "./heraults-components/ClubPage";
 import LudothequePage from "./heraults-components/LudothequePage";
+import UniversPage from "./heraults-components/UniversPage";
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -29,6 +30,7 @@ const config = {
     Inscription: 'Inscription',
     Club: 'Club',
     Ludotheque: 'Ludotheque',
+    Univers: 'Univers',
   },
 };
 
@@ -92,6 +94,14 @@ export default function App() {
               <Stack.Screen
                 name="Ludotheque"
                 component={() => <LudothequePage />} 
+                options={{
+                  header: () => <Header showBanner={false} />,
+                  title: 'Les Héraults de Lambert',
+                }}
+              />
+              <Stack.Screen
+                name="Univers"
+                component={() => <UniversPage />} 
                 options={{
                   header: () => <Header showBanner={false} />,
                   title: 'Les Héraults de Lambert',

@@ -17,7 +17,7 @@ const HeraultsPage = () => {
         <StatusBar />
         <Box className="flex-1">
           <Explorepage />
-          <MobileModeChangeButton />
+          {false && <MobileModeChangeButton /> /* TODO when darkmode is ok*/}
         </Box>
       </Box>
     </SafeAreaView>
