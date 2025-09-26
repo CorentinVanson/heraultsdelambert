@@ -32,12 +32,12 @@ const Game = ({ game, updateGames }: GameProps) => {
   return (
     <>
       <Card size="md" variant="elevated" className="p-6 rounded-lg m-3 bg-background-100" >
-        <Box className="flex-row items-center">
+        <Box className="flex-col md:flex-row items-center justify-center">
           <Image 
             source={game.imgUrl ?? require("../assets/logo.svg")}
             size="md"
             alt={`${game.name} Image`} 
-            className="mr-4"/>
+            className="md:mr-4"/>
           <Heading size="md" className="mb-1 flex-grow">
             {game.name}
           </Heading>

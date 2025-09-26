@@ -1,23 +1,12 @@
-import { Button, ButtonText, Icon, Link } from "@/components/ui";
-import { Dice1, Dice1Icon, Dices, DicesIcon } from "lucide-react-native";
+import { Button, ButtonText, Link } from "@/components/ui";
+import { DicesIcon } from "lucide-react-native";
 import React from "react";
 
 const LudothequeContent = () => {
   return (
     <>
-      <section className="py-10 gap-16">
-        <div className="flex flex-col lg:flex-row gap-8 justify-between">
-            <div className="basis-2/3">
-              <h1 className="grenze text-7xl mb-4 text-[#273840]">La Ludothèque du Club</h1>
-              <p className="text-xl font-light">
-                La ludothèque est un espace dédié au jeu, à la découverte et au partage. Plus de 100 jeux sont disponibles en prêt pour les membres de l'association, du jeu de rôle au jeu de société.<br/>
-                L’association dispose d’une armoire à jeux contenant des livres de jeux de rôle et des jeux de société. Tout membre à jour de sa cotisation a la possibilité d’emprunter ces jeux en faisant enregistrer son emprunt auprès du bureau. 
-              </p>
-            </div>
-        </div>
-      </section>
       
-        <section className="py-10 gap-16">
+        <section className="py-0 md:py-10 gap-16">
             <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-1">
                     <h2 className="text-7xl leading-tight text-stroke">Règles</h2>
