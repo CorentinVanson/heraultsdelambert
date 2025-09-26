@@ -29,10 +29,10 @@ const ConvensionInscriptionPage = () => {
     >
       {loading ? <Center className="h-full w-full"><Spinner size="small" color={colors.gray[500]} /></Center>
       : <ScrollView
-        className="h-[1px] pt-32"
+        className="h-[1px] pt-0 md:pt-32"
         >
         <Box
-          className={`flex items-center`}
+          className={`flex items-center p-10 pt-16 md:p-20`}
         >
           <section className="py-12">
               <h1 className="grenze text-7xl mb-4 text-[#273840]">La Convention</h1>

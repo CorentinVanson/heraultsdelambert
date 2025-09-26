@@ -3,6 +3,7 @@ import { Box } from "../components/ui";
 import { SafeAreaView, ScrollView } from "react-native";
 import { ThemeContext } from "@/ColorMode";
 import LudothequeContent from "./ludotheque/LudothequeContent";
+import LudothequeHeader from "./ludotheque/LudothequeHeader";
 
 const Explorepage = () => {
   const { colorMode } = useContext(ThemeContext);
@@ -14,10 +15,11 @@ const Explorepage = () => {
       } flex-1 overflow-hidden font-serif`}
     >
       <ScrollView
-        className="h-[1px] pt-32"
+        className="h-[1px] pt-0 md:pt-32"
         >
+        <LudothequeHeader />
         <Box
-          className={`flex p-24`}
+          className={`flex p-10 pt-16 md:p-20`}
         >
           <LudothequeContent />
         </Box>

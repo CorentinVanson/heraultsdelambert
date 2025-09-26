@@ -1,6 +1,6 @@
 import "./global.css";
 import React from "react";
-import { Box, GluestackUIProvider, SafeAreaView } from "./components/ui";
+import { GluestackUIProvider, SafeAreaView } from "./components/ui";
 import { useFonts, Grenze_600SemiBold } from '@expo-google-fonts/grenze';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -68,9 +68,9 @@ export default function App() {
               initialRouteName="Home">
               <Stack.Screen
                 name="Home"
-                component={HeraultsPage}
+                component={() => <HeraultsPage />}
                 options={{
-                  header: () => <Header showBanner={showBanner}/>,
+                  header: () => <Header showBanner={showBanner} />,
                   title: 'Les Héraults de Lambert',
                 }}
 

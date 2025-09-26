@@ -17,7 +17,7 @@ const ClubContent = () => {
                 Une fois par an nous lançons l’Appel des Héraults à la ferme du Mont Garin pour un week-end complet de jeu, de rencontres, d’activités et de convivialité.<br/>
               </p>
             </div>
-            <div className="bg-primary-700 p-12 rounded-xl shadow-lg self-end basis-1/3">
+            <div className="bg-primary-700 p-12 rounded-xl shadow-lg self-end basis-1/3 w-full md:w-auto">
                 <h4 className="text-3xl mb-4 text-[#F1F7ED]">Informations pratiques</h4>
                 <ul className="space-y-4 text-[#F1F7ED]">
                     <li><span className="font-bold">Membres :</span> 50+ passionnés</li>

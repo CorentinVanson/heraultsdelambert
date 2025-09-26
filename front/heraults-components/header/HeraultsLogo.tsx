@@ -7,7 +7,7 @@ const HeraultsLogo = () => {
   const navigation = useNavigation();
   const { colorMode } = useContext(ThemeContext);
   return (
-    <Box className="flex-grow basis-0" style={{ filter: colorMode === 'dark' ? 'invert(100%) brightness(100%)' : '' }}>
+    <Box className="md:flex-grow md:basis-0" style={{ filter: colorMode === 'dark' ? 'invert(100%) brightness(100%)' : '' }}>
       <Link onPress={() => navigation.navigate('Home')}>
         <Image
           source={require("../../assets/logo.svg")}
