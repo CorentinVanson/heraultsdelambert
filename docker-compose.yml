@@ -1,0 +1,22 @@
+services:
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    depends_on:
+      - bff
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  bff:
+    build:
+      context: ./bff
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
