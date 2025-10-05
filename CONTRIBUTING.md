@@ -9,6 +9,7 @@ Vous pouvez contribuer en signalant des bugs, en proposant des idées d'amélior
 - **Signaler un bug ou une idée** :
   1. Rendez-vous sur la page GitHub du projet.
   2. Cliquez sur "Issues".
+  2. Vérifiez que le ticket que vous vous apprétez à créer n'existe pas déjà
   3. Créez une nouvelle issue en décrivant le problème ou l'idée d'amélioration.
   4. Ajoutez des captures d'écran ou des exemples si possible.
 
