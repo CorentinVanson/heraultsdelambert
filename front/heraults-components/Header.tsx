@@ -40,6 +40,7 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Univers')}>Univers</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Ludotheque')}>Ludothèque</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Inscription')}>Convention</Link>
+            <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Dices')}>Dés</Link>
               <Link href="https://www.facebook.com/assojdrhdl" className="hidden md:flex" isExternal>
                 <Icon
                   as={Facebook}

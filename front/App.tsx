@@ -14,6 +14,7 @@ import { ThemeContext } from "./ColorMode";
 import ClubPage from "./heraults-components/ClubPage";
 import LudothequePage from "./heraults-components/LudothequePage";
 import UniversPage from "./heraults-components/UniversPage";
+import DicePage from "./heraults-components/dice/DicePage";
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -31,6 +32,7 @@ const config = {
     Club: 'Club',
     Ludotheque: 'Ludotheque',
     Univers: 'Univers',
+    Dices: 'Dices',
   },
 };
 
@@ -78,6 +80,14 @@ export default function App() {
               <Stack.Screen
                 name="Inscription"
                 component={() => <ConvensionInscriptionPage />} 
+                options={{
+                  header: () => <Header showBanner={false} />,
+                  title: 'Les Héraults de Lambert',
+                }}
+              />
+              <Stack.Screen
+                name="Dices"
+                component={() => <DicePage />} 
                 options={{
                   header: () => <Header showBanner={false} />,
                   title: 'Les Héraults de Lambert',
