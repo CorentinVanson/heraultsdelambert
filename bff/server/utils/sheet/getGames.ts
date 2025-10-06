@@ -5,7 +5,7 @@ export const listGames = defineCachedFunction(async () => {
   const sheets = google.sheets({version: 'v4', auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1IS83je0Jrq_Z_YYZAslgAveBgSIHgo_qA_1Kqvuoxtw',
-    range: 'Parties!A3:H10',
+    range: 'Parties!A3:H40',
   });
   const sheets2 = google.sheets({version: 'v4', auth});
   const resPlayers = await sheets2.spreadsheets.values.get({
