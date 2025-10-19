@@ -14,6 +14,7 @@ import { ThemeContext } from "./ColorMode";
 import ClubPage from "./heraults-components/ClubPage";
 import LudothequePage from "./heraults-components/LudothequePage";
 import UniversPage from "./heraults-components/UniversPage";
+import UniqueUniversPage from "./heraults-components/UniqueUniversPage";
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -30,7 +31,13 @@ const config = {
     Inscription: 'Inscription',
     Club: 'Club',
     Ludotheque: 'Ludotheque',
-    Univers: 'Univers',
+    Univers: {
+      path: 'Univers',
+      screens: {
+        "Liste des Univers": '',
+        "Description de Univers": ':id',
+      }
+    }
   },
 };
 
@@ -101,12 +108,18 @@ export default function App() {
               />
               <Stack.Screen
                 name="Univers"
-                component={() => <UniversPage />} 
                 options={{
                   header: () => <Header showBanner={false} />,
                   title: 'Les Héraults de Lambert',
                 }}
-              />
+              >
+                {() => (
+                  <Stack.Navigator>
+                    <Stack.Screen name="Liste des Univers" component={() => <UniversPage />} options={{ headerShown: false }} />
+                    <Stack.Screen name="Description de Univers" component={UniqueUniversPage} options={{ header: () => <Header showBanner={false} /> }} />
+                  </Stack.Navigator>
+                )}
+              </Stack.Screen>
             </Stack.Navigator>
           </NavigationContainer>
         </GluestackUIProvider>

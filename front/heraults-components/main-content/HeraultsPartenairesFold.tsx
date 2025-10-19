@@ -42,7 +42,7 @@ const TabPanelData = () => {
     });
   }, []);
 
-  return loading ? <Center className="h-full w-full"><Spinner size="small" color={colors.gray[500]} /></Center>
+  return loading ? <Center className="h-full w-[100vw]"><Spinner size="small" color={colors.gray[500]} /></Center>
       : (
     [...tabsData, ...tabsData, ...tabsData].map(partenaire => 
       <Link href={partenaire.socialLink} isExternal className="flex flex-col items-center space-y-2">

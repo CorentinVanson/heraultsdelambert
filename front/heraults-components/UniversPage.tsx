@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { Box } from "../components/ui";
+import { Box, Button, ButtonText, CloseIcon, Heading, Icon, Modal, ModalBackdrop, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, Text } from "../components/ui";
 import { SafeAreaView, ScrollView } from "react-native";
 import { ThemeContext } from "@/ColorMode";
-import UniversContent from "./univers/UniversContent";
+import UniversContent, { WorldDto } from "./univers/UniversContent";
 
 const Explorepage = () => {
   const { colorMode } = useContext(ThemeContext);
