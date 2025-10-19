@@ -37,7 +37,7 @@ const UniversContent = () => {
             <h1 className="grenze text-7xl mb-4 text-[#273840]">Nos Univers de Jeu de Rôle</h1>
             <p className="text-xl font-light max-w-2xl">Découvrez les mondes que nous explorons et les jeux que nous maîtrisons au sein du club.</p>
         </section>
-        <div id="filter-bar" className="flex flex-wrap justify-center gap-3 p-4 bg-white rounded-xl shadow-lg">
+        <div id="filter-bar" className="flex flex-wrap justify-center gap-3 p-4 bg-white rounded-xl shadow-md">
             <Button variant="outline" action="primary" className="px-4 py-2 rounded-full font-bold text-sm" onPress={() => setFilter(undefined)}><ButtonText>Tous</ButtonText></Button>
             {univers.map(univer => univer.category).filter((value, index, self) => self.indexOf(value) === index).map((category, i) => 
                 <Button variant="solid" action={buttonTypes[i%buttonTypes.length]} onPress={() => setFilter(category)} className="filter-btn px-4 py-2 rounded-full font-bold text-sm hover:opacity-80 transition-all"><ButtonText className={["primary", "negative"].includes(buttonTypes[i%buttonTypes.length]) ? 'text-[#F1F7ED]' : ''}>{category}</ButtonText></Button>
