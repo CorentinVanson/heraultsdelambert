@@ -51,16 +51,18 @@ const UniversContent = () => {
                             <img src={univer.imgUrl} alt="Image de l'univers Donjons et Dragons" className="object-cover min-h-full min-w-full absolute -z-10" />
                             <div className="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-t from-herault-bg-dark-transparent to-transparent"></div>
                             <div className="relative z-10 p-8 text-primary-50 h-full w-full flex flex-col justify-end">
-                                <div className="self-end mb-auto flex">
+                                <div className="self-end justify-end mb-auto flex flex-wrap gap-2">
                                     {
                                     univer.tags.map(warning => 
-                                        <Badge size="lg" variant="solid" action="muted" className="mx-2 bg-indicator-secondary" key={warning}>
+                                        <Badge size="lg" variant="solid" action="muted" className="bg-indicator-secondary" key={warning}>
                                             <BadgeText>{warning}</BadgeText>
                                         </Badge>)
                                     }
                                 </div>
-                                <h2 className="grenze text-5xl mb-2 text-[#FFA400]">{univer.name}</h2>
-                                <p className="text-lg">{univer.smallDesc}</p>
+                                <h2 className="grenze text-5xl mb-2 text-[#FFA400]">{univer.name}</h2> 
+                                <div className="">
+                                    <p className="block-with-text">{univer.smallDesc}</p>
+                                </div>
                             </div>
                         </div>
                     )

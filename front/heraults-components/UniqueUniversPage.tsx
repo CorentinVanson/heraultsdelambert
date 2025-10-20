@@ -31,7 +31,7 @@ const UniqueUniversPage = ({ route }) => {
         className="h-[1px] pt-0 md:pt-14"
         >
         <Box
-          className={`flex p-10 pt-16 md:p-20`}
+          className={`flex p-10 pt-20 md:p-20`}
         >
           <div>
             <Button variant="outline" action="primary" className="mb-8" onPress={() => { navigation.navigate('Univers', { screen: 'Liste des Univers' }) }}>
@@ -46,8 +46,8 @@ const UniqueUniversPage = ({ route }) => {
               <img src={univer?.imgUrl} alt="Image de l'univers Donjons et Dragons" className="object-cover min-h-full min-w-full absolute -z-10" />
               <div className="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-t from-herault-bg-dark-transparent to-transparent"></div>
               <div className="relative z-10 p-8 text-primary-50 h-full w-full flex flex-col justify-start">
-                  <h2 className="grenze text-9xl mb-2 text-[#FFA400]">{univer?.name}</h2>
-                  <p className="text-3xl font-sans">{univer?.smallDesc}</p>
+                  <h2 className="grenze text-7xl lg:text-9xl mb-2 text-[#FFA400]">{univer?.name}</h2>
+                  <p className="text-xl lg:text-3xl font-sans">{univer?.smallDesc}</p>
                   
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 p-4 bg-black bg-opacity-40 rounded-lg">
                         <div className="text-center">

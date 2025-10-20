@@ -55,3 +55,11 @@ body {
     background-color: #FFA400;
     border: 2px solid #273840;
 }
+
+.block-with-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
