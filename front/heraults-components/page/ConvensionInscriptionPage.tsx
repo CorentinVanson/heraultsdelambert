@@ -32,7 +32,7 @@ const ConvensionInscriptionPage = () => {
         className="h-[1px] pt-0 md:pt-14"
         >
         <Box
-          className={`flex items-center p-3 md:p-10 pt-16 md:p-20`}
+          className={`flex items-center p-3 pt-16 md:p-20`}
         >
           <section className="py-12">
               <h1 className="grenze text-7xl mb-4 text-[#273840]">La Convention</h1>
