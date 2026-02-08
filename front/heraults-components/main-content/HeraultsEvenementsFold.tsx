@@ -65,7 +65,7 @@ const HeraultsEvenementsFold = () => {
           </div>
       </section>
       
-      <section className="py-10">
+      {false && <section className="py-10">
           <div className="bg-tertiary-500 p-12 rounded-xl text-white shadow-lg">
               <h2 className="grenze text-6xl mb-4">La Convention</h2>
               <p className="text-lg">Chaque année, nous organisons une grande convention de jeu de rôle, avec des invités, des exposants et des parties uniques. Un rendez-vous incontournable pour la communauté.</p>
@@ -75,7 +75,7 @@ const HeraultsEvenementsFold = () => {
                 </Button>
               </div>
           </div>
-      </section>
+      </section>} 
     </>
   );
 };
