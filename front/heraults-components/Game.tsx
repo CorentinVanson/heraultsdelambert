@@ -74,7 +74,7 @@ const Game = ({ game, updateGames }: GameProps) => {
         size="lg"
       >
         <ModalBackdrop />
-        <ModalContent className="bg-white">
+        <ModalContent className="bg-herault-bg-light">
           <ModalHeader>
             <Heading size="md">
               Inscris-toi!

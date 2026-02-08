@@ -45,7 +45,7 @@ export function MobileHeader({ showDrawer, setShowDrawer }: { showDrawer: boolea
                 <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 py-4 text-2xl" onPress={() => {navigation.navigate('Club'); setShowDrawer(false);}}>Le Club</Link>
                 <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 py-4 text-2xl" onPress={() => {navigation.navigate('Univers', { screen: 'Liste des Univers' }); setShowDrawer(false);}}>Univers</Link>
                 <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 py-4 text-2xl" onPress={() => {navigation.navigate('Ludotheque'); setShowDrawer(false);}}>Ludothèque</Link>
-                <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 py-4 text-2xl" onPress={() => {navigation.navigate('Inscription'); setShowDrawer(false);}}>Convention</Link>
+                { false && <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 py-4 text-2xl" onPress={() => {navigation.navigate('Inscription'); setShowDrawer(false);}}>Convention</Link> }
                 <div className='flex space-x-4'>
                     <Link href="https://www.facebook.com/assojdrhdl" className="py-4 text-2xl" isExternal>
                         <Icon

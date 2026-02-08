@@ -24,7 +24,7 @@ const UniqueUniversPage = ({ route }) => {
   return (
     <SafeAreaView
       className={`${
-        colorMode === "light" ? "bg-white" : "bg-[#171717]"
+        colorMode === "light" ? "bg-herault-bg-light" : "bg-[#171717]"
       } flex-1 overflow-hidden font-serif`}
     >
       <ScrollView
@@ -46,7 +46,7 @@ const UniqueUniversPage = ({ route }) => {
               <img src={univer?.imgUrl} alt="Image de l'univers Donjons et Dragons" className="object-cover min-h-full min-w-full absolute -z-10" />
               <div className="absolute top-0 left-0 w-full h-full z-0 bg-gradient-to-t from-herault-bg-dark-transparent to-transparent"></div>
               <div className="relative z-10 p-8 text-primary-50 h-full w-full flex flex-col justify-start">
-                  <h2 className="grenze text-7xl lg:text-9xl mb-2 text-[#FFA400]">{univer?.name}</h2>
+                  <h2 className="grenze text-7xl lg:text-9xl mb-2 text-[#FFA400]" translate="no">{univer?.name}</h2>
                   <p className="text-xl lg:text-3xl font-sans">{univer?.smallDesc}</p>
                   
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 p-4 bg-black bg-opacity-40 rounded-lg">
@@ -56,7 +56,7 @@ const UniqueUniversPage = ({ route }) => {
                         </div>
                         <div className="text-center">
                             <span className="text-sm font-light uppercase opacity-75">Maître(s) du Jeu</span>
-                            <div className="text-2xl font-bold">{univer?.mjs.map(mj => <p>{mj}</p>)}</div>
+                            <div className="text-2xl font-bold" translate="no">{univer?.mjs.map(mj => <p>{mj}</p>)}</div>
                         </div>
                         <div className="text-center">
                             <span className="text-sm font-light uppercase opacity-75">Type de partie</span>

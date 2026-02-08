@@ -5,7 +5,7 @@ export const listWorlds = defineCachedFunction(async () => {
   const sheets = google.sheets({version: 'v4', auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1IS83je0Jrq_Z_YYZAslgAveBgSIHgo_qA_1Kqvuoxtw',
-    range: 'Univers!A3:I40',
+    range: 'Univers!A3:I90',
   });
   const rows = res.data.values;
   if (!rows || rows.length === 0) {
@@ -22,7 +22,7 @@ export const listWorlds = defineCachedFunction(async () => {
     tags: row[5]?.split(',').map((t: string) => t.trim()).filter(t => t) || undefined,
     mjs: row[6]?.split(',').map((t: string) => t.trim()).filter(t => t) || undefined,
     links: row[7]?.split(',').map((t: string) => t.trim()).filter(t => t) || undefined,
-    imgUrl: row[8] || undefined,}));
+    imgUrl: row[8] || undefined,})).filter(world => world.name);
 }, {
   maxAge: 60 * 60,
   name: 'listWorlds',

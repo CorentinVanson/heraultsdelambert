@@ -60,7 +60,7 @@ const HeraultsHomeFold = () => {
                       <ButtonText>Adhérer</ButtonText>
                     </Button>
                   </Link>
-                  <Button className="bg-white p-4 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Club')}>
+                  <Button className="bg-herault-bg-light p-4 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Club')}>
                     <ButtonText>Le club</ButtonText>
                   </Button>
                 </HStack>

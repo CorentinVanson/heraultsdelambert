@@ -24,7 +24,7 @@ const ConvensionInscriptionPage = () => {
   return (
     <SafeAreaView
       className={`${
-        colorMode === "light" ? "bg-white" : "bg-[#171717]"
+        colorMode === "light" ? "bg-herault-bg-light" : "bg-[#171717]"
       } flex-1 overflow-hidden font-serif`}
     >
       {loading ? <Center className="h-full w-full"><Spinner size="small" color={colors.gray[500]} /></Center>

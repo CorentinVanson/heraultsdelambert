@@ -13,6 +13,15 @@ const HeraultsEvenementsFold = () => {
   const navigation = useNavigation();
   return (
     <>
+
+      <section className="py-10">
+        <h2 className="text-7xl leading-tight text-stroke">Le calendrier</h2>
+        <div className="flex justify-center" > 
+          <div className="mt-8 shadow-lg w-full lg:w-1/2" > 
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FParis&showPrint=0&mode=AGENDA&showTz=0&showCalendars=0&showTabs=0&showDate=0&showNav=0&showTitle=0&src=heraultsdelambert%40gmail.com&color=%23039be5&color=%23009688&color=%237cb342" style={{border: "0px", filter: colorMode === 'dark' ? 'invert(100%) brightness(100%)' : ''}} className="w-full h-[50vh]" width="800" height="600" frameBorder="0" scrolling="no"></iframe>
+          </div>
+        </div>
+      </section>
       <section className="py-10 gap-16">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
@@ -30,20 +39,11 @@ const HeraultsEvenementsFold = () => {
               <ul className="space-y-4 text-[#F1F7ED]">
                   <li><span className="font-bold">Membres :</span> 50+ passionnés</li>
                   <li><span className="font-bold">Prix :</span> Adhésion annuelle à 20€</li>
-                  <li><span className="font-bold">Horaires :</span> Tous les vendredi soir et samedis après-midi</li>
+                  <li><span className="font-bold">Horaires :</span> Tous les vendredi soir (18h-23h) et samedis après-midi (14h-23h)</li>
               </ul>
               <div className="flex w-full justify-center mt-6">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d80967.67613193349!2d3.025!3d50.641236!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c32aa068b898c5%3A0x3b180b9752a8153d!2s12%20Rue%20Champ%C3%AAtre%2C%2059130%20Lambersart%2C%20France!5e0!3m2!1sfr!2sus!4v1756664841213!5m2!1sfr!2sus" height="300" style={{border: "0px"}} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full"></iframe>
               </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-10">
-        <h2 className="text-7xl leading-tight text-stroke">Le calendrier</h2>
-        <div className="flex justify-center" > 
-          <div className="mt-8 shadow-lg w-full lg:w-1/2" > 
-            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FParis&showPrint=0&mode=AGENDA&showTz=0&showCalendars=0&showTabs=0&showDate=0&showNav=0&showTitle=0&src=heraultsdelambert%40gmail.com&color=%23039be5&color=%23009688&color=%237cb342" style={{border: "0px", filter: colorMode === 'dark' ? 'invert(100%) brightness(100%)' : ''}} className="w-full h-[50vh]" width="800" height="600" frameBorder="0" scrolling="no"></iframe>
           </div>
         </div>
       </section>
@@ -66,11 +66,11 @@ const HeraultsEvenementsFold = () => {
       </section>
       
       <section className="py-10">
-          <div className="bg-[#FFA400] p-12 rounded-xl text-[#273840] shadow-lg">
+          <div className="bg-tertiary-500 p-12 rounded-xl text-white shadow-lg">
               <h2 className="grenze text-6xl mb-4">La Convention</h2>
               <p className="text-lg">Chaque année, nous organisons une grande convention de jeu de rôle, avec des invités, des exposants et des parties uniques. Un rendez-vous incontournable pour la communauté.</p>
               <div className="mt-6">
-                <Button className="bg-white p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Inscription')}>
+                <Button className="bg-herault-bg-light p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Inscription')}>
                   <ButtonText>Inscriptions Convention</ButtonText>
                 </Button>
               </div>

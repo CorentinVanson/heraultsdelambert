@@ -23,7 +23,7 @@ const LudothequeContent = () => {
                 </div>
                 <div className="flex-1">
                     <h2 className="text-7xl leading-tight text-stroke">Catalogue</h2>
-                    <div className="mt-6 p-12 bg-tertiary-700 text-[#F1F7ED] rounded-xl shadow-lg">
+                    <div className="mt-6 p-12 bg-tertiary-500 text-[#F1F7ED] rounded-xl shadow-lg">
                         <h3 className="mb-4 text-4xl font-light">Consulter le catalogue</h3>
                         <ul className="mb-4 space-y-4 text-lg">
                             <li>Découvrez tous les jeux de notre collection et trouvez votre prochaine aventure. Des jeux pour tous les âges et tous les goûts !</li>

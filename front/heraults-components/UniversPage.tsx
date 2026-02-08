@@ -10,7 +10,7 @@ const Explorepage = () => {
   return (
     <SafeAreaView
       className={`${
-        colorMode === "light" ? "bg-white" : "bg-[#171717]"
+        colorMode === "light" ? "bg-herault-bg-light" : "bg-[#171717]"
       } flex-1 overflow-hidden font-serif`}
     >
       <ScrollView
