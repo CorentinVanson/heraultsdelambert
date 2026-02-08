@@ -22,7 +22,7 @@ const ClubContent = () => {
                 <ul className="space-y-4 text-[#F1F7ED]">
                     <li><span className="font-bold">Membres :</span> 50+ passionnés</li>
                     <li><span className="font-bold">Prix :</span> Adhésion annuelle à 20€</li>
-                    <li><span className="font-bold">Horaires :</span> Tous les vendredi soir et samedis après-midi</li>
+                    <li><span className="font-bold">Horaires :</span> Tous les vendredi soir (18h-23h) et samedis après-midi (14h-23h)</li>
                 </ul>
                 <div className="flex w-full justify-center mt-6">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d80967.67613193349!2d3.025!3d50.641236!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c32aa068b898c5%3A0x3b180b9752a8153d!2s12%20Rue%20Champ%C3%AAtre%2C%2059130%20Lambersart%2C%20France!5e0!3m2!1sfr!2sus!4v1756664841213!5m2!1sfr!2sus" height="300" style={{border: "0px"}} allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade" className="w-full"></iframe>
