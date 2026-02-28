@@ -56,7 +56,7 @@ const HeraultsHomeFold = () => {
                 <p className="mt-4 text-2xl font-light text-white">Explorez de nouveaux mondes, créez des histoires épiques et rencontrez des passionnés de jeu de rôle et de jeu de plateau à Lambersart.</p>
                 <HStack className="mt-8 flex justify-center space-x-4">
                   <Link href="https://www.helloasso.com/associations/heraults-de-lambert/adhesions/inscriptions-2022-2023" isExternal>
-                    <Button className="bg-secondary-500 p-4 rounded-lg font-bold text-lg">
+                    <Button action="secondary" className=" p-4 rounded-lg font-bold text-lg">
                       <ButtonText>Adhérer</ButtonText>
                     </Button>
                   </Link>

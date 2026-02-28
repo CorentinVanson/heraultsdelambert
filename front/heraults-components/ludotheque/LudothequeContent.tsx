@@ -34,7 +34,7 @@ const LudothequeContent = () => {
                                     size={40}
                                     className="stroke-background-50" />
                                 <Link href="https://www.myludo.fr/#!/profil/les-heraults-de-lambert-46753" isExternal>
-                                    <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
+                                    <Button action="secondary" className=" p-3 rounded-lg font-bold text-lg">
                                         <ButtonText>Voir la liste des jeux</ButtonText>
                                     </Button>
                                 </Link>

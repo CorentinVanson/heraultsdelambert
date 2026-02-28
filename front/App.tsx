@@ -8,13 +8,19 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Linking from "expo-linking";
 import Header from "./heraults-components/Header";
 import HeraultsPage from "./heraults-components/page/HeraultsPage";
-import ConvensionInscriptionPage from "./heraults-components/page/ConvensionInscriptionPage";
+import ConventionInscriptionPage from "./heraults-components/page/ConventionInscriptionPage";
 import { Loader } from "lucide-react-native";
 import { ThemeContext } from "./ColorMode";
 import ClubPage from "./heraults-components/ClubPage";
 import LudothequePage from "./heraults-components/LudothequePage";
 import UniversPage from "./heraults-components/UniversPage";
 import UniqueUniversPage from "./heraults-components/UniqueUniversPage";
+import { ConventionHome } from "./heraults-components/page/ConventionHome";
+import HeaderConvention from "./heraults-components/HeaderConvention";
+import { ConventionInfosPratiques } from "./heraults-components/page/ConventionInfosPratiques";
+import { ConventionActivities } from "./heraults-components/page/ConventionActivities";
+import { ConventionInscriptionPage2 } from "./heraults-components/page/ConventionInscriptionPage2";
+import { Menu, MenuContext } from "./heraults-components/Menu";
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -28,7 +34,15 @@ const Stack = createNativeStackNavigator();
 const config = {
   screens: {
     Home: '',
-    Inscription: 'Inscription',
+    Convention: {
+      path: 'Convention',
+      screens: {
+        "ConventionHome": '',
+        "Inscription": 'Inscription',
+        "InfosPratiques": 'InfosPratiques',
+        "Activities": 'Activities',
+      }
+    },
     Club: 'Club',
     Ludotheque: 'Ludotheque',
     Univers: {
@@ -51,7 +65,8 @@ export default function App() {
 
   const [colorMode, setColorMode] = React.useState<"dark" | "light">(
     defaultTheme
-  );
+  );  
+  const [menuModalOpen, setMenuModalOpen] = React.useState(false);
   
   const [fontsLoaded] = useFonts({
     Grenze_600SemiBold,
@@ -61,69 +76,84 @@ export default function App() {
     setColorMode((prev) => (prev === "light" ? "dark" : "light"));
   };
 
+  const toggleMenuModal = () => {
+    setMenuModalOpen(!menuModalOpen);
+  };
+
 
   if (!fontsLoaded) {
-    return <Loader />
+    return <Loader /> 
   }
 
   return (
     <>
-      <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
-        <GluestackUIProvider mode={colorMode}>
-          <NavigationContainer linking={linking}>
-            <Stack.Navigator
-              initialRouteName="Home">
-              <Stack.Screen
-                name="Home"
-                component={() => <HeraultsPage />}
-                options={{
-                  header: () => <Header showBanner={showBanner} />,
-                  title: 'Les Héraults de Lambert',
-                }}
+      <MenuContext.Provider value={{ menuModalOpen, toggleMenuModal }}>
+        <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
+          <GluestackUIProvider mode={colorMode}>
+            <NavigationContainer linking={linking}>
+              <Stack.Navigator
+                initialRouteName="Home">
+                <Stack.Screen
+                  name="Home"
+                  component={() => <HeraultsPage />}
+                  options={{
+                    header: () => <Header showBanner={showBanner} />,
+                    title: 'Les Héraults de Lambert',
+                  }}
 
-              />
-              <Stack.Screen
-                name="Inscription"
-                component={() => <ConvensionInscriptionPage />} 
-                options={{
-                  header: () => <Header showBanner={false} />,
-                  title: 'Les Héraults de Lambert',
-                }}
-              />
-              <Stack.Screen
-                name="Club"
-                component={() => <ClubPage />} 
-                options={{
-                  header: () => <Header showBanner={false} />,
-                  title: 'Les Héraults de Lambert',
-                }}
-              />
-              <Stack.Screen
-                name="Ludotheque"
-                component={() => <LudothequePage />} 
-                options={{
-                  header: () => <Header showBanner={false} />,
-                  title: 'Les Héraults de Lambert',
-                }}
-              />
-              <Stack.Screen
-                name="Univers"
-                options={{
-                  header: () => <Header showBanner={false} />,
-                  title: 'Les Héraults de Lambert',
-                }}
-              >
-                {() => (
-                  <Stack.Navigator>
-                    <Stack.Screen name="Liste des Univers" component={() => <UniversPage />} options={{ headerShown: false }} />
-                    <Stack.Screen name="Description de Univers" component={UniqueUniversPage} options={{ header: () => <Header showBanner={false} /> }} />
-                  </Stack.Navigator>
-                )}
-              </Stack.Screen>
-            </Stack.Navigator>
-          </NavigationContainer>
-        </GluestackUIProvider>
-      </ThemeContext.Provider>
+                />
+                <Stack.Screen
+                  name="Convention"
+                  options={{
+                    header: () => <HeaderConvention showBanner={false} />,
+                    title: 'Les Héraults de Lambert',
+                  }}
+                >
+                  {() => (
+                    <Stack.Navigator>
+                      <Stack.Screen name="ConventionHome" component={() => <ConventionHome />} options={{ headerShown: false }} />
+                      <Stack.Screen name="Activities" component={() => <ConventionActivities />} options={{ headerShown: false }} />
+                      <Stack.Screen name="InfosPratiques" component={() => <ConventionInfosPratiques />} options={{ headerShown: false }} />
+                      <Stack.Screen name="Inscription" component={() => <ConventionInscriptionPage2 />} options={{ headerShown: false }} />
+                    </Stack.Navigator>
+                  )}
+                </Stack.Screen>
+                <Stack.Screen
+                  name="Club"
+                  component={() => <ClubPage />} 
+                  options={{
+                    header: () => <Header showBanner={false} />,
+                    title: 'Les Héraults de Lambert',
+                  }}
+                />
+                <Stack.Screen
+                  name="Ludotheque"
+                  component={() => <LudothequePage />} 
+                  options={{
+                    header: () => <Header showBanner={false} />,
+                    title: 'Les Héraults de Lambert',
+                  }}
+                />
+                <Stack.Screen
+                  name="Univers"
+                  options={{
+                    header: () => <Header showBanner={false} />,
+                    title: 'Les Héraults de Lambert',
+                  }}
+                >
+                  {() => (
+                    <Stack.Navigator>
+                      <Stack.Screen name="Liste des Univers" component={() => <UniversPage />} options={{ headerShown: false }} />
+                      <Stack.Screen name="Description de Univers" component={UniqueUniversPage} options={{ header: () => <Header showBanner={false} /> }} />
+                    </Stack.Navigator>
+                  )}
+                </Stack.Screen>
+              </Stack.Navigator>
+              <Menu />
+            </NavigationContainer>
+          </GluestackUIProvider>
+        </ThemeContext.Provider>
+      </MenuContext.Provider>
     </>
   );
 }

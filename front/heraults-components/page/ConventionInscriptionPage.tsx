@@ -6,7 +6,7 @@ import { getGames } from "@/api/game";
 import Game, { GameDto } from "../Game";
 import colors from "tailwindcss/colors"
 
-const ConvensionInscriptionPage = () => {
+const ConventionInscriptionPage = () => {
   const { colorMode } = useContext(ThemeContext);
   const [ games, setGames ] = useState<GameDto[]>([]);
   const [ loading, setLoading ] = useState<boolean>(false);
@@ -58,4 +58,4 @@ const ConvensionInscriptionPage = () => {
     </SafeAreaView>
   );
 };
-export default ConvensionInscriptionPage;
+export default ConventionInscriptionPage;

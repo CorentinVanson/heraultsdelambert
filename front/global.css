@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-light: #F0F4F6;
+    --color-dark: #273840;
+    --color-accent: #5D8598;
+    --color-primary: #FFA400;
+}
+
 body {
   @apply overflow-hidden h-full;
 }
@@ -54,6 +61,56 @@ body {
     border-radius: 50%;
     background-color: #FFA400;
     border: 2px solid #273840;
+}
+
+.card-glass {
+    background: rgba(93, 133, 152, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(240, 244, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card-glass:hover {
+    border-color: var(--color-primary);
+    background: rgba(93, 133, 152, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Styles pour les badges de prix */
+.price-badge {
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e69500;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 164, 0, 0.3);
+}
+
+.input-field, .input-field > option {
+    background: var(--color-dark);
+    border: 1px solid rgba(93, 133, 152, 0.3);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: var(--color-primary);
 }
 
 .block-with-text {

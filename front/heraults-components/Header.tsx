@@ -39,7 +39,7 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Club')}>Le Club</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Univers', { screen: 'Liste des Univers' })}>Univers</Link>
             <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Ludotheque')}>Ludothèque</Link>
-            { false && <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Inscription')}>Convention</Link> }
+            { false && <Link className="text-primary-700 hover:text-secondary-500 transition-colors duration-300 hidden md:flex" onPress={() => navigation.navigate('Convention')}>Convention</Link> }
               <Link href="https://www.facebook.com/assojdrhdl" className="hidden md:flex" isExternal>
                 <Icon
                   as={Facebook}
@@ -63,7 +63,7 @@ const Header = React.memo(({ showBanner }: { showBanner: boolean }) => {
               </Link>
               { false && <ToggleMode /> /* TODO when darkmode is ready */ }
               <Link href="https://www.helloasso.com/associations/heraults-de-lambert/adhesions/inscriptions-2022-2023" className="mx-auto md:mx-0" isExternal>
-                <Button className="bg-secondary-500 p-3 rounded-lg font-bold text-lg">
+                <Button action="secondary" className=" p-3 rounded-lg font-bold text-lg">
                   <ButtonText>Adhérer</ButtonText>
                 </Button>
               </Link>
