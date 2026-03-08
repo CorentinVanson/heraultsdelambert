@@ -6,7 +6,7 @@ const HeraultsConventionLogo = () => {
   const navigation = useNavigation();
   return (
     <Box className="md:flex-grow md:basis-0" style={{ filter: 'invert(100%) brightness(100%)' }}>
-      <Link onPress={() => navigation.navigate('Convention')}>
+      <Link onPress={() => navigation.navigate('ConventionHome')}>
         <Image
           source={require("../../assets/logo.svg")}
           alt="Heraultslogo"

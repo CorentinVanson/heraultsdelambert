@@ -98,9 +98,8 @@ body {
     box-shadow: 0 4px 15px rgba(255, 164, 0, 0.3);
 }
 
-.input-field, .input-field > option {
+.input-field, .input-field > input {
     background: var(--color-dark);
-    border: 1px solid rgba(93, 133, 152, 0.3);
     color: white;
     padding: 0.75rem;
     border-radius: 0.5rem;
@@ -109,7 +108,42 @@ body {
     transition: border-color 0.3s;
 }
 
-.input-field:focus {
+.input-field[data-invalid="false"]  {
+    border: 1px solid rgba(93, 133, 152, 0.3);
+}
+
+.input-field[data-invalid="true"] {
+    border: 1px solid oklch(70.4% 0.191 22.216) !important;
+}
+
+.select-input-field, .select-input-field > button, .select-input-field > select, .select-input-field > option, .select-input-field > select > option {
+    background: var(--color-dark);
+    color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+
+.select-input-field > button[data-invalid="false"]  {
+    border: 1px solid rgba(93, 133, 152, 0.3);
+}
+
+.select-input-field > button[data-invalid="true"] {
+    border: 1px solid oklch(70.4% 0.191 22.216);
+}
+
+.select-input-field > button > input {
+    background: var(--color-dark);
+    color: white;
+    border-radius: 0.5rem;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus, .select-input-field:focus {
     border-color: var(--color-primary);
 }
 
