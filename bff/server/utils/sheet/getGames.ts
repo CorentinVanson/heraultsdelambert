@@ -28,7 +28,7 @@ export const listGames = defineCachedFunction(async () => {
     MJName: row[5] || undefined,
     imgUrl: row[6] || undefined,
     description: row[7] || undefined,
-    players: players.slice((index)*30, (index)*30+29).map(player => player[0]).filter(player => !!player)
+    players: (players || []).slice((index)*30, (index)*30+29).map(player => player[0]).filter(player => !!player)
   }));
 }, {
   maxAge: 60 * 60,
