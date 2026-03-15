@@ -1,7 +1,9 @@
-import { ScrollView } from "@/components/ui";
+import { Link, ScrollView } from "@/components/ui";
+import { useNavigation } from "@react-navigation/native";
 
 export const ConventionActivities = () => {
-    return <ScrollView>
+      const navigation = useNavigation();
+    return <ScrollView className="font-serif">
     <main id="page-activities" className="hidden-page">
         <section className="pt-48 pb-16 px-4 bg-[#273840]">
             <div className="max-w-6xl mx-auto text-center">
@@ -60,7 +62,10 @@ export const ConventionActivities = () => {
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#5D8598] border-b border-[#5D8598]/30 pb-4">Expériences Immersives</h2>
                     <div className="grid md:grid-cols-2 gap-8">
                         <div className="card-glass p-8 rounded-2xl">
-                            <h3 className="text-xl font-bold text-[#FFA400] mb-4">Times of Legends : Joan of Arc</h3>
+                            <div className="flex justify-between items-start mb-4">
+                                <h3 className="text-xl font-bold text-[#FFA400] mb-4">Times of Legends : Joan of Arc</h3>
+                                <span className="price-badge">GRATUIT</span>
+                            </div>
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed">
                                 Incarnez Jeanne d’Arc dans un monde médiéval magnifiquement rendu. Forgez votre propre légende dans un jeu narratif où la foi et la stratégie sont vos armes. L'avenir de la France repose entre vos mains.
                             </p>
@@ -86,7 +91,7 @@ export const ConventionActivities = () => {
                         <div className="card-glass p-8 rounded-2xl">
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400]">Vampire : La Mascarade</h3>
-                                <span className="price-badge">5€ (3€ Membres)</span>
+                                <span className="price-badge">5€</span>
                             </div>
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed mb-4">
                                 Plongez dans les intrigues de la Cour de Lille avec l'association "La Mascarade". Alliances, complots et manipulations au cœur d'un univers gothique-punk.
@@ -105,9 +110,12 @@ export const ConventionActivities = () => {
                                     <span className="text-[#FFA400]">✨</span>
                                     <span className="text-[#F0F4F6]">Création de dés personnalisés avec <strong>Aleades</strong></span>
                                 </li>
-                                <li className="flex items-center gap-3">
-                                    <span className="text-[#FFA400]">🎨</span>
-                                    <span className="text-[#F0F4F6]/80">Initiation à la peinture de figurines</span>
+                                <li className="flex justify-between items-start mb-4">
+                                    <div className="flex items-center gap-3">
+                                        <span className="text-[#FFA400]">🎨</span>
+                                        <span className="text-[#F0F4F6]/80">Initiation à la peinture de figurines</span>
+                                    </div>
+                                    <span className="price-badge">4€</span>
                                 </li>
                             </ul>
                         </div>
@@ -124,8 +132,8 @@ export const ConventionActivities = () => {
                     <h2 className="text-3xl font-bold mb-4">Prêt à nous rejoindre ?</h2>
                     <p className="mb-8 text-gray-600">Toutes les activités se font exclusivement sur préinscription via nos formulaires en ligne.</p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <a href="#" className="btn-primary px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm">Formulaire JdR / Immersif</a>
-                        <a href="#" className="border-2 border-[#273840] px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm hover:bg-[#273840] hover:text-white transition">Formulaire Repas</a>
+                        <Link className="btn-primary px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm" onPress={() => navigation.navigate('Inscription')}>Inscrivez-vous !</Link>
+                        <Link className="btn-secondary border-2 border-[#273840] px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm" onPress={() => navigation.navigate('Inscription')}>Formulaire Repas</Link>
                     </div>
                     <p className="mt-8 text-xs text-gray-400 font-light">Le paiement des activités payantes s'effectuera directement sur place.</p>
                 </div>

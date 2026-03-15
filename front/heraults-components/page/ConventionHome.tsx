@@ -1,11 +1,13 @@
-import { ScrollView } from "@/components/ui";
+import { ScrollView, ImageBackground, Link } from "@/components/ui";
+import { useNavigation } from "@react-navigation/native";
 
 export const ConventionHome = () => {
-    return <ScrollView>
-    <header className="hero-gradient min-h-screen flex items-center justify-center text-center px-4 pt-16 bg-primary-700">
-        <div className="max-w-4xl">
-            <h2 className="text-[#FFA400] text-lg md:text-xl font-semibold tracking-[0.3em] uppercase mb-4">Évènement 2026</h2>
-            <h1 className="text-5xl md:text-8xl font-bold mb-6 text-[#F0F4F6] leading-tight">Le Week-end <br className="hidden md:block" /> des Héraults</h1>
+      const navigation = useNavigation();
+    return <ScrollView className="font-serif">
+    <ImageBackground source={require("../../assets/affiche2.jpg")} style={{ width: '100%', height: '100vh', position: 'relative' }} className="hero-gradient min-h-screen flex items-center justify-center text-center pt-16" resizeMode="cover">
+        <div className="relative z-10 bg-primary-700/90 p-14 max-w-4xl rounded-3xl">
+            <h2 className="text-[#FFA400] text-lg md:text-xl font-semibold tracking-[0.3em] uppercase mb-4 font-sans">Évènement 2026</h2>
+            <h1 className="text-5xl md:text-8xl font-bold mb-6 text-[#F0F4F6] leading-tight grenze">Le Week-end <br className="hidden md:block" /> des Héraults</h1>
             <div className="w-24 h-1 bg-[#FFA400] mx-auto mb-8"></div>
             <p className="text-xl md:text-2xl text-[#F0F4F6]/80 italic mb-10 max-w-2xl mx-auto font-light">
                 "Retrouvez l’ambiance chaleureuse des conventions de l’époque. Ici, nous misons sur la qualité et l’authentique."
@@ -15,10 +17,10 @@ export const ConventionHome = () => {
                     <span className="block text-[#FFA400] font-bold text-lg tracking-wide">23 & 24 Mai 2026</span>
                     <span className="text-sm text-[#F0F4F6]/60 uppercase tracking-widest">Lambersart (59)</span>
                 </div>
-                <a href="#concept" className="text-[#F0F4F6] border-2 border-[#5D8598] px-8 py-3 rounded-full hover:bg-[#5D8598] hover:border-[#5D8598] transition font-bold uppercase tracking-widest text-sm">Explorer le programme</a>
+                <a href="#concept" className="text-[#F0F4F6] border-2 border-[#5D8598] px-8 py-3 rounded-full hover:bg-[#5D8598] hover:border-[#5D8598] transition font-bold uppercase tracking-widest text-sm font-sans">Explorer le programme</a>
             </div>
         </div>
-    </header>
+    </ImageBackground>
 
     <section id="concept" className="py-24 px-4 bg-primary-700">
         <div className="max-w-6xl mx-auto">
@@ -60,21 +62,21 @@ export const ConventionHome = () => {
                     </div>
                 </div>
 
-                <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
+                <div className="order-1 lg:order-2 grid grid-cols-2 gap-4 font-sans">
                     <div className="card-glass p-8 rounded-2xl text-center">
                         <span className="block text-4xl mb-4">🎲</span>
-                        <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">JdR Standard</h3>
-                        <p className="text-xs text-[#5D8598] font-semibold">SESSIONS DE 4 À 6H</p>
+                        <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Parties JdR</h3>
+                        <p className="text-xs text-[#5D8598] font-semibold">SESSIONS COURTES OU LONGUES</p>
                     </div>
                     <div className="card-glass p-8 rounded-2xl text-center">
                         <span className="block text-4xl mb-4">🧛</span>
-                        <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Mascarade</h3>
-                        <p className="text-xs text-[#5D8598] font-semibold">VAMPIRE & GN</p>
+                        <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Grandeur nature et impro</h3>
+                        <p className="text-xs text-[#5D8598] font-semibold"> VAMPIRE, LOUP GAROU, BLOOD</p>
                     </div>
                     <div className="card-glass p-8 rounded-2xl text-center">
-                        <span className="block text-4xl mb-4">🐺</span>
-                        <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Loups-Garous</h3>
-                        <p className="text-xs text-[#5D8598] font-semibold">NUITS IMMERSIVES</p>
+                        <span className="block text-4xl mb-4">♟️</span>
+                        <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Jeux</h3>
+                        <p className="text-xs text-[#5D8598] font-semibold">FIGURINES & PLATEAU</p>
                     </div>
                     <div className="card-glass p-8 rounded-2xl text-center">
                         <span className="block text-4xl mb-4">🎨</span>
@@ -97,7 +99,7 @@ export const ConventionHome = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 className="text-xl font-bold mb-6 uppercase tracking-widest">Temporalité</h3>
+                    <h3 className="text-xl font-bold mb-6 uppercase tracking-widest font-sans">Horaire</h3>
                     <ul className="space-y-6">
                         <li>
                             <span className="block font-bold text-[#5D8598] text-sm uppercase">Samedi 23 mai</span>
@@ -116,7 +118,7 @@ export const ConventionHome = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         </svg>
                     </div>
-                    <h3 className="text-xl font-bold mb-6 uppercase tracking-widest">Voyage</h3>
+                    <h3 className="text-xl font-bold mb-6 uppercase tracking-widest font-sans">Accès</h3>
                     <div className="space-y-4 text-gray-600">
                         <p><strong>🚗 Voiture :</strong> Sortie 7A/7B rocade Nord-Ouest. Parking gratuit sur place.</p>
                         <p><strong>🚌 Bus :</strong> Lignes 51, 10 ou Co3 (Arrêts Cimetière Nord / Lambersart Bourg).</p>
@@ -130,11 +132,9 @@ export const ConventionHome = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
-                    <h3 className="text-xl font-bold mb-6 uppercase tracking-widest text-[#FFA400]">Restauration</h3>
+                    <h3 className="text-xl font-bold mb-6 uppercase tracking-widest text-[#FFA400] font-sans">Restauration</h3>
                     <p className="text-[#F0F4F6]/80 mb-6 font-light">Pour une organisation optimale, les repas se font uniquement sur réservation.</p>
-                    <a href="#" className="inline-block text-[#FFA400] font-bold hover:text-white transition group">
-                        Découvrir les menus <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
-                    </a>
+                    <Link className="inline-block text-[#FFA400] font-bold hover:text-white transition group" onPress={() => navigation.navigate('InfosPratiques')}>Découvrir les menus <span className="inline-block transition-transform group-hover:translate-x-2">→</span></Link>
                 </div>
             </div>
 

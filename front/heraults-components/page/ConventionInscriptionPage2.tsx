@@ -1,9 +1,10 @@
-import { AlertCircleIcon, Button, ButtonSpinner, ButtonText, ChevronDownIcon, FormControl, FormControlError, FormControlErrorIcon, FormControlErrorText, FormControlLabel, FormControlLabelText, Input, InputField, ScrollView, Select, SelectBackdrop, SelectContent, SelectIcon, SelectInput, SelectItem, SelectPortal, SelectTrigger } from "@/components/ui";
+import { AlertCircleIcon, Button, ButtonSpinner, ButtonText, Checkbox, CheckboxIcon, CheckboxIndicator, CheckIcon, ChevronDownIcon, CircleIcon, FormControl, FormControlError, FormControlErrorIcon, FormControlErrorText, FormControlLabel, FormControlLabelText, Input, InputField, Radio, RadioGroup, RadioIcon, RadioIndicator, RadioLabel, ScrollView, Select, SelectBackdrop, SelectContent, SelectIcon, SelectInput, SelectItem, SelectPortal, SelectTrigger } from "@/components/ui";
 import { MenuContext } from "../Menu";
 import { useContext, useEffect, useState } from "react";
-import { getGames } from "@/api/game";
+import { addPlayer, getGames } from "@/api/game";
 import { GameDto } from "../Game";
 import colors from "tailwindcss/colors";
+import { addFood } from "@/api/food";
 
 export const ConventionInscriptionPage2 = () => {
   const { toggleMenuModal } = useContext(MenuContext);
@@ -14,6 +15,7 @@ export const ConventionInscriptionPage2 = () => {
   const [selectedActivity, setSelectedActivity] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isFoodSuccess, setIsFoodSuccess] = useState(false);
   const [reloadGames, setReloadGames] = useState(0);
 
     const [isPseudoInvalid, setIsPseudoInvalid] = useState(false)
@@ -23,11 +25,47 @@ export const ConventionInscriptionPage2 = () => {
     const [isPhoneInvalid, setIsPhoneInvalid] = useState(false)
     const [phoneInputValue, setPhoneInputValue] = useState<string>()
 
+    const [includeSaturdayMidday, setIncludeSaturdayMidday] = useState(false);
+    const [includeSaturdayEvening, setIncludeSaturdayEvening] = useState(false);
+    const [includeSunday, setIncludeSunday] = useState(false);
+    const [saturdayBagnat, setSaturdayBagnat] = useState<string>("");
+    const [saturdaySaucisse, setSaturdaySaucisse] = useState({ choice1: false, choice2: false, choice3: false });
+    const [saturdayMerguez, setSaturdayMerguez] = useState({ choice1: false, choice2: false, choice3: false });
+    const [saturdayVege, setSaturdayVege] = useState({ choice1: false, choice2: false, choice3: false });
+    const [sundayMain, setSundayMain] = useState<string>("");
+    const [sundayCamembert, setSundayCamembert] = useState(false);
+
+    const initForms = () => {
+        setSelectedDay('');
+        setSelectedActivity('');
+        setMailInputValue('');
+        setPhoneInputValue('');
+        setIncludeSaturdayMidday(false);
+        setIncludeSaturdayEvening(false);
+        setIncludeSunday(false);
+        setSaturdayBagnat("");
+        setSaturdaySaucisse({ choice1: false, choice2: false, choice3: false });
+        setSaturdayMerguez({ choice1: false, choice2: false, choice3: false });
+        setSaturdayVege({ choice1: false, choice2: false, choice3: false });
+        setSundayMain("");
+        setSundayCamembert(false);
+    }
+
+    const isFormCorrect = () => {
+        return (
+            !loading &&
+            (includeSaturdayMidday || includeSaturdayEvening || includeSunday) &&
+            (!includeSaturdayMidday || saturdayBagnat) &&
+            (!includeSaturdayEvening || ((saturdaySaucisse.choice1 || saturdayMerguez.choice1 || saturdayVege.choice1) && (saturdaySaucisse.choice2 || saturdayMerguez.choice2 || saturdayVege.choice2))) &&
+            (!includeSunday || sundayMain)
+        ) as boolean;
+    }
+
     useEffect(() => {
         getGames().then(games => setGames(games)).finally(() => setLoading(false));
     }, [reloadGames]);
 
-    return <ScrollView>
+    return <ScrollView className="font-serif">
       <main id="page-registration" className="hidden-page">
         <section className="pt-48 pb-16 px-4 bg-[#273840]">
             <div className="max-w-4xl mx-auto">
@@ -219,7 +257,7 @@ export const ConventionInscriptionPage2 = () => {
                         if(invalid) {return}
         
                         setLoading(true);
-                        await fetch("http://localhost:3000/api/games/player/add", {method: 'POST', body: JSON.stringify({ id: selectedActivity, pseudo: pseudoInputValue, mail: mailInputValue, phone: phoneInputValue }), headers: { "Content-Type": "application/json"}});
+                        await addPlayer({ id: selectedActivity, pseudo: pseudoInputValue, mail: mailInputValue, phone: phoneInputValue });
                         setLoading(false);
                         setIsSuccess(true);
                         setReloadGames(reloadGames + 1);
@@ -234,31 +272,249 @@ export const ConventionInscriptionPage2 = () => {
                     </div>
                 </div>
 
-                <div className="card-glass p-8 md:p-12 rounded-[2rem] border-l-4 border-[#FFA400]">
+                <div className="card-glass p-8 md:p-12 rounded-[2rem] border-l-4 border-[#FFA400] mb-12 ">
                   <div className="flex justify-between items-start mb-8">
-                    <h2 className="text-2xl font-bold mb-8 flex items-center gap-3 text-[#F0F4F6]">
+                    <h2 className="text-2xl font-bold flex items-center gap-3 text-[#FFA400]">
                         <span>🍲</span> Réservation Repas
                     </h2>                        
                     <button onClick={() => toggleMenuModal?.()} className="text-xs font-bold text-[#FFA400] underline hover:text-white transition">Voir le détail des menus</button>
                   </div>
-                    <form className="space-y-6">
-                        <p className="text-sm text-[#F0F4F6]/60 italic mb-6">Cochez vos repas (paiement sur place).</p>
-                        <div className="grid gap-4">
-                            <label className="flex items-center gap-4 p-4 bg-white/5 rounded-xl cursor-pointer">
-                                <input type="checkbox" className="w-5 h-5 accent-[#FFA400]" />
-                                <div><span className="block font-bold text-[#F0F4F6]">Samedi Midi</span><span className="text-xs text-[#5D8598]">Plat du jour & Dessert</span></div>
-                            </label>
-                            <label className="flex items-center gap-4 p-4 bg-white/5 rounded-xl cursor-pointer">
-                                <input type="checkbox" className="w-5 h-5 accent-[#FFA400]" />
-                                <div><span className="block font-bold text-[#F0F4F6]">Samedi Soir</span><span className="text-xs text-[#5D8598]">Formule Nocturne</span></div>
-                            </label>
-                            <label className="flex items-center gap-4 p-4 bg-white/5 rounded-xl cursor-pointer">
-                                <input type="checkbox" className="w-5 h-5 accent-[#FFA400]" />
-                                <div><span className="block font-bold text-[#F0F4F6]">Dimanche Midi</span><span className="text-xs text-[#5D8598]">Brunch Rôliste</span></div>
-                            </label>
+                    <form>
+                        <FormControl
+                            isInvalid={isPseudoInvalid}
+                            size="md"
+                            isDisabled={false}
+                            isReadOnly={false}
+                            isRequired={true}
+                        >
+                            <FormControlLabel className="[&_div]:text-xs [&_div]:uppercase [&_div]:tracking-widest [&_div]:text-[#5D8598] [&_div]:font-bold">
+                                <FormControlLabelText>Pseudo</FormControlLabelText>
+                            </FormControlLabel>
+                            <Input className="input-field" size="md">
+                                <InputField
+                                    type="text"
+                                    placeholder="Pseudo"
+                                    value={pseudoInputValue}
+                                    onChangeText={(text) => setPseudoInputValue(text)}
+                                />
+                            </Input>
+                            <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
+                                <FormControlErrorIcon as={AlertCircleIcon} />
+                                <FormControlErrorText>
+                                    Le pseudo est obligatoire, et doit être unique pour chaque activité
+                                </FormControlErrorText>
+                            </FormControlError>
+                        </FormControl>
+                        <FormControl
+                            isInvalid={isMailInvalid}
+                            size="md"
+                            isDisabled={false}
+                            isReadOnly={false}
+                            isRequired={true}
+                        >
+                            <FormControlLabel className="[&_div]:text-xs [&_div]:uppercase [&_div]:tracking-widest [&_div]:text-[#5D8598] [&_div]:font-bold mt-4">
+                                <FormControlLabelText>Mail</FormControlLabelText>
+                            </FormControlLabel>
+                            <Input className="input-field" size="md">
+                                <InputField
+                                    type="text"
+                                    placeholder="Mail"
+                                    value={mailInputValue}
+                                    onChangeText={(text) => setMailInputValue(text)}
+                                />
+                            </Input>
+                            <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
+                                <FormControlErrorIcon as={AlertCircleIcon} />
+                                <FormControlErrorText>
+                                    Le mail est obligatoire et doit être dans un format valide
+                                </FormControlErrorText>
+                            </FormControlError>
+                        </FormControl>
+                        <div className="space-y-6 mt-6">
+                            <p className="text-sm text-[#F0F4F6]/60 italic mb-6">Cochez vos repas (paiement sur place).</p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                            <Checkbox value="samedi" isChecked={includeSaturdayMidday} onChange={() => setIncludeSaturdayMidday((v) => !v)} className="text-white">
+                                <CheckboxIndicator>
+                                    <CheckboxIcon as={CheckIcon} />
+                                </CheckboxIndicator>
+                                <span className="ml-2">Samedi midi</span>
+                            </Checkbox>
+                            <Checkbox value="samedi" isChecked={includeSaturdayEvening} onChange={() => setIncludeSaturdayEvening((v) => !v)} className="text-white">
+                                <CheckboxIndicator>
+                                    <CheckboxIcon as={CheckIcon} />
+                                </CheckboxIndicator>
+                                <span className="ml-2">Samedi soir</span>
+                            </Checkbox>
+                            <Checkbox value="dimanche" isChecked={includeSunday} onChange={() => setIncludeSunday((v) => !v)} className="text-white">
+                                <CheckboxIndicator>
+                                    <CheckboxIcon as={CheckIcon} />
+                                </CheckboxIndicator>
+                                <span className="ml-2">Dimanche</span>
+                            </Checkbox>
+                            </div>
+
+                            {!includeSaturdayMidday && !includeSaturdayEvening && !includeSunday && (
+                            <div className="bg-white/5 p-4 rounded-xl text-sm text-[#F0F4F6]/80">
+                                Cochez au moins un jour pour afficher les options de repas.
+                            </div>
+                            )}
+
+                            {includeSaturdayMidday && (
+                                <div className="bg-white/5 p-4 rounded-xl">
+                                <label className="block mb-2 text-sm font-bold text-[#FFA400]">Samedi Midi - 9€ - Choix du bagnat</label>
+                                <Select className="select-input-field bg-[#273840]" selectedValue={saturdayBagnat} onValueChange={setSaturdayBagnat}>
+                                    <SelectTrigger>
+                                    <SelectInput placeholder="Choisissez un bagnat" className="flex-1" />
+                                    <SelectIcon className="mr-3" as={ChevronDownIcon} />
+                                    </SelectTrigger>
+                                    <SelectPortal>
+                                    <SelectBackdrop />
+                                    <SelectContent>
+                                        <SelectItem label="Bagnat classique" value="classique" />
+                                        <SelectItem label="Bagnat poulet" value="poulet" />
+                                        <SelectItem label="Bagnat végé" value="vege" />
+                                    </SelectContent>
+                                    </SelectPortal>
+                                </Select>
+                                </div>
+                            )}
+
+                            {includeSaturdayEvening && (
+                                <div className="bg-white/5 p-4 rounded-xl">
+                                <div className="mb-2 text-sm font-bold text-[#FFA400]">Samedi Soir - 8€ - 2 viandes gratuites, 3ème (+2€)</div>
+                                {['saucisse','merguez','saucisse végé'].map((type) => {
+                                    const state = type === 'saucisse' ? saturdaySaucisse : type === 'merguez' ? saturdayMerguez : saturdayVege;
+                                    const setState = type === 'saucisse' ? setSaturdaySaucisse : type === 'merguez' ? setSaturdayMerguez : setSaturdayVege;
+
+                                    const usedChoices = {
+                                    choice1: saturdaySaucisse.choice1 || saturdayMerguez.choice1 || saturdayVege.choice1,
+                                    choice2: saturdaySaucisse.choice2 || saturdayMerguez.choice2 || saturdayVege.choice2,
+                                    choice3: saturdaySaucisse.choice3 || saturdayMerguez.choice3 || saturdayVege.choice3,
+                                    };
+
+                                    return (
+                                    <div key={type} className="mb-4">
+                                        <div className="text-sm font-semibold text-[#F0F4F6] mb-2">{type.replace('vegé','végé')}</div>
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                        {['choice1','choice2','choice3'].map((choice, idx) => {
+                                            const isCurrentlySelected = (state as any)[choice];
+                                            const isDisabled = !isCurrentlySelected && usedChoices[choice as 'choice1' | 'choice2' | 'choice3'];
+                                            return (
+                                            <label key={choice} className="flex items-center gap-2 p-2 bg-[#1D2B34]/70 rounded-lg cursor-pointer">
+                                                <Checkbox
+                                                value={`${type}-${choice}`}
+                                                isChecked={isCurrentlySelected}
+                                                onChange={() => setState({ ...(state as any), [choice]: !isCurrentlySelected })}
+                                                className="h-4"
+                                                isDisabled={isDisabled}
+                                                >
+                                                <CheckboxIndicator>
+                                                    <CheckboxIcon as={CheckIcon} />
+                                                </CheckboxIndicator>
+                                                <span className={`text-white ${isDisabled ? 'opacity-50' : ''}`}>{`${type.replace('vegé','végé')} ${idx + 1}${idx === 2 ? ' (+2€)' : ''}`}</span>
+                                                </Checkbox>
+                                            </label>
+                                            );
+                                        })}
+                                        </div>
+                                    </div>
+                                    );
+                                })}
+                                </div>
+                            )}
+
+                            {includeSunday && (
+                            <div className="bg-white/5 p-4 rounded-xl">
+                                <div className="mb-2 text-sm font-bold text-[#FFA400]">Dimanche Midi - 9€</div>
+                                <RadioGroup
+                                className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3"
+                                value={sundayMain}
+                                onChange={setSundayMain}
+                                >
+                                <Radio value="tenders" className="p-2 bg-[#1D2B34]/70 rounded-lg radio-button">
+                                    <RadioIndicator>
+                                        <RadioIcon as={CircleIcon} />
+                                    </RadioIndicator>
+                                    <RadioLabel>Tenders</RadioLabel>
+                                </Radio>
+                                <Radio value="nuggets-vg" className="p-2 bg-[#1D2B34]/70 rounded-lg radio-button">
+                                    <RadioIndicator>
+                                        <RadioIcon as={CircleIcon} />
+                                    </RadioIndicator>
+                                    <RadioLabel>Nuggets VG</RadioLabel>
+                                </Radio>
+                                </RadioGroup>
+                                <label className="flex items-center gap-2 p-2 bg-[#1D2B34]/70 rounded-lg cursor-pointer">
+                                <Checkbox
+                                    value="camembert"
+                                    isChecked={sundayCamembert}
+                                    onChange={() => setSundayCamembert((v) => !v)}
+                                    className="h-4"
+                                >
+                                    <CheckboxIndicator>
+                                    <CheckboxIcon as={CheckIcon} />
+                                    </CheckboxIndicator>
+                                    <span className="text-white">Camembert BBQ (+3,5€)</span>
+                                </Checkbox>
+                                </label>
+                            </div>
+                            )}
+                            <Button isDisabled={!isFormCorrect()} action="secondary" className="w-full py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl" onPress={async () => {
+                                setIsFoodSuccess(false);
+                                let invalid = false;
+                                if (!pseudoInputValue || games.find(g => g.id === Number(selectedActivity))?.players.includes(pseudoInputValue)) {
+                                    invalid = true;
+                                    setIsPseudoInvalid(true)
+                                } else {
+                                    setIsPseudoInvalid(false)
+                                }
+                                if (!mailInputValue || !mailInputValue?.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+                                    invalid = true;
+                                    setIsMailInvalid(true)
+                                } else {
+                                    setIsMailInvalid(false)
+                                }
+                                if(invalid) {return}
+                
+                                setLoading(true);
+                                const saturdayChoices = {mergez: saturdayMerguez, saucisse: saturdaySaucisse, vege: saturdayVege};
+                                await addFood({ 
+                                    pseudo: pseudoInputValue, 
+                                    mail: mailInputValue, 
+                                    food: { 
+                                        saturdayMidday: saturdayBagnat, 
+                                        saturdayEvening: [Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'vege'].choice1).map(key => key), Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'vege'].choice2).map(key => key), Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'vege'].choice3).map(key => key)].flat(),
+                                        sundayMidday: sundayMain ? [sundayMain, sundayCamembert ? 'camembert' : null].filter(Boolean) : undefined
+                                    } 
+                                });
+                                setLoading(false);
+                                initForms();
+                                setIsFoodSuccess(true);
+                            }}>Réserver</Button>
+                            
+                            <div className={`bg-white/5 border border-green-400 p-6 mt-4 rounded-xl ${!isFoodSuccess ? 'hidden' : ''}`}>
+                                <p id="reg-summary-text" className="text-sm text-[#F0F4F6]">Inscription confirmée pour {pseudoInputValue}!</p>
+                            </div>
                         </div>
-                        <button type="button" className="btn-primary w-full py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl">Réserver</button>
                     </form>
+                </div>
+                
+                <div className="card-glass p-8 md:p-12 rounded-[2rem] border-l-4 border-[#FFA400]">
+                  <div className="flex justify-between items-start mb-8">
+                    <h2 className="text-2xl font-bold flex items-center gap-3 text-[#FFA400]">
+                        <span>🛍️</span> Inscription Brocante
+                    </h2>   
+                  </div>     
+                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à la brocante, clique sur le bouton ci-dessous.</p>
+                    <a
+                        href="https://docs.google.com/spreadsheets/d/125_VK08Ps7NH1G_2b5ZGFmETUI37H1MJ/edit?usp=sharing&ouid=114008693847154180703&rtpof=true&sd=true"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-primary inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest"
+                    >
+                        Ouvrir l'inscription brocante
+                    </a>
                 </div>
             </div>
         </section>

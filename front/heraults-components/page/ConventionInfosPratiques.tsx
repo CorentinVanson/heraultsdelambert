@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 export const ConventionInfosPratiques = () => {
     const { toggleMenuModal } = useContext(MenuContext);
-    return <ScrollView>
+    return <ScrollView className="font-serif">
     <main id="page-useful" className="hidden-page">
         <section className="pt-48 pb-16 px-4 bg-[#273840]">
             <div className="max-w-6xl mx-auto">

@@ -1,6 +1,7 @@
 import "./global.css";
-import React from "react";
-import { GluestackUIProvider, SafeAreaView } from "./components/ui";
+import React, { useEffect, useState } from "react";
+import { useRoute } from '@react-navigation/native';
+import { GluestackUIProvider, SafeAreaView, ScrollView } from "./components/ui";
 import { useFonts, Grenze_600SemiBold } from '@expo-google-fonts/grenze';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -30,6 +31,59 @@ Linking.getInitialURL().then((url: any) => {
 });
 
 const Stack = createNativeStackNavigator();
+
+const InscriptionWrapper = () => {
+  const route = useRoute();
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    let hasHidden = false;
+
+    if ((route.params as any)?.hidden) {
+      hasHidden = true;
+    }
+
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has("hidden")) {
+        hasHidden = true;
+      }
+    }
+
+    setShowForm(hasHidden);
+
+    if (!hasHidden) {
+      Linking.getInitialURL().then((url) => {
+        if (!url) return;
+        const query = url.split("?")[1];
+        if (!query) return;
+        const params = new URLSearchParams(query);
+        if (params.has("hidden")) {
+          setShowForm(true);
+        }
+      });
+    }
+  }, [route.params]);
+
+  if (showForm) {
+    return <ConventionInscriptionPage2 />;
+  }
+
+  return (
+    <ScrollView className="font-serif">
+      <main className="hidden-page" id="page-inscription-announcement">
+        <section className="pt-48 pb-16 px-4 bg-[#273840] h-[100vh]">
+          <div className="max-w-4xl mx-auto">
+            <div className="card-glass p-8 md:p-12 rounded-[2rem] mb-12 text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#FFA400]">Inscriptions Activités</h1>
+              <p className="text-white text-lg mb-4">Ouverture des inscriptions le 18 avril.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </ScrollView>
+  );
+};
 
 const config = {
   screens: {
@@ -63,11 +117,27 @@ const linking = {
 export default function App() {
   const showBanner = false;
 
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = "fr";
+      document.documentElement.setAttribute("translate", "no");
+      document.documentElement.classList.add("notranslate");
+
+      let existing = document.querySelector('meta[name="google"]');
+      if (!existing) {
+        const m = document.createElement("meta");
+        m.name = "google";
+        m.content = "notranslate";
+        document.head.appendChild(m);
+      }
+    }
+  }, []);
+
   const [colorMode, setColorMode] = React.useState<"dark" | "light">(
     defaultTheme
-  );  
+  );
   const [menuModalOpen, setMenuModalOpen] = React.useState(false);
-  
+
   const [fontsLoaded] = useFonts({
     Grenze_600SemiBold,
   });
@@ -82,7 +152,7 @@ export default function App() {
 
 
   if (!fontsLoaded) {
-    return <Loader /> 
+    return <Loader />
   }
 
   return (
@@ -95,7 +165,7 @@ export default function App() {
                 initialRouteName="Home">
                 <Stack.Screen
                   name="Home"
-                  component={() => <HeraultsPage />}
+                  component={HeraultsPage}
                   options={{
                     header: () => <Header showBanner={showBanner} />,
                     title: 'Les Héraults de Lambert',
@@ -106,21 +176,21 @@ export default function App() {
                   name="Convention"
                   options={{
                     header: () => <HeaderConvention showBanner={false} />,
-                    title: 'Les Héraults de Lambert',
+                    title: 'Héraults de Lambert - Convention',
                   }}
                 >
                   {() => (
                     <Stack.Navigator>
-                      <Stack.Screen name="ConventionHome" component={() => <ConventionHome />} options={{ headerShown: false }} />
-                      <Stack.Screen name="Activities" component={() => <ConventionActivities />} options={{ headerShown: false }} />
-                      <Stack.Screen name="InfosPratiques" component={() => <ConventionInfosPratiques />} options={{ headerShown: false }} />
-                      <Stack.Screen name="Inscription" component={() => <ConventionInscriptionPage2 />} options={{ headerShown: false }} />
+                      <Stack.Screen name="ConventionHome" component={ConventionHome} options={{ headerShown: false, title: 'Héraults de Lambert - Convention' }} />
+                      <Stack.Screen name="Activities" component={ConventionActivities} options={{ headerShown: false, title: 'Héraults de Lambert - Convention' }} />
+                      <Stack.Screen name="InfosPratiques" component={ConventionInfosPratiques} options={{ headerShown: false, title: 'Héraults de Lambert - Convention' }} />
+                      <Stack.Screen name="Inscription" component={InscriptionWrapper} options={{ headerShown: false, title: 'Héraults de Lambert - Convention' }} />
                     </Stack.Navigator>
                   )}
                 </Stack.Screen>
                 <Stack.Screen
                   name="Club"
-                  component={() => <ClubPage />} 
+                  component={ClubPage}
                   options={{
                     header: () => <Header showBanner={false} />,
                     title: 'Les Héraults de Lambert',
@@ -128,7 +198,7 @@ export default function App() {
                 />
                 <Stack.Screen
                   name="Ludotheque"
-                  component={() => <LudothequePage />} 
+                  component={LudothequePage}
                   options={{
                     header: () => <Header showBanner={false} />,
                     title: 'Les Héraults de Lambert',

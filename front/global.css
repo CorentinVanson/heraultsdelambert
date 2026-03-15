@@ -154,3 +154,9 @@ body {
     line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.radio-button, .radio-button > div, .radio-button > div[data-checked="true"], .radio-button > div[data-checked="true"] > svg {
+    color: #F0F4F6;
+    border-color: #F0F4F6;
+    fill: #F0F4F6;
+}
