@@ -19,7 +19,7 @@ export const ConventionInfosPratiques = () => {
                         <span className="text-3xl">🍲</span> Restauration sur place
                     </h2>
                     <p className="mb-8 text-lg leading-relaxed text-gray-600">
-                        Pour nous permettre de gérer les stocks au plus juste et d'éviter le gaspillage, nous vous demandons de **réserver vos repas à l'avance**.
+                        Pour nous permettre de gérer les stocks au plus juste et d'éviter le gaspillage, nous vous demandons de réserver vos repas à l'avance.
                     </p>
                     
                     <div className="grid md:grid-cols-3 gap-6 mb-10">
