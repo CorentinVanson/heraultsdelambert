@@ -1,5 +1,14 @@
 {
     "rewrites": [
         { "source": "/(.*)", "destination": "/index.html" }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                { "key": "Content-Language", "value": "fr" },
+                { "key": "X-Content-Language", "value": "fr" }
+            ]
+        }
     ]
 }
