@@ -4,6 +4,19 @@ import { useRoute } from '@react-navigation/native';
 import { GluestackUIProvider, SafeAreaView, ScrollView } from "./components/ui";
 import { useFonts, Grenze_600SemiBold } from '@expo-google-fonts/grenze';
 import { NavigationContainer } from '@react-navigation/native';
+import { IntlProvider } from 'react-intl';
+
+const messages = {
+  fr: {
+    'app.title': 'Héraults de Lambert',
+    'convention.event': 'Évènement 2026',
+    'convention.title': 'Le Week-end des Héraults',
+    'convention.subtitle': "Retrouvez l’ambiance chaleureuse des conventions de l’époque. Ici, nous misons sur la qualité et l’authentique.",
+    'convention.dates': '23 & 24 Mai 2026',
+    'convention.location': 'Lambersart (59)',
+    'convention.button': 'Explorer le programme',
+  },
+};
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import * as Linking from "expo-linking";
@@ -159,10 +172,11 @@ export default function App() {
     <>
       <MenuContext.Provider value={{ menuModalOpen, toggleMenuModal }}>
         <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
-          <GluestackUIProvider mode={colorMode}>
-            <NavigationContainer linking={linking}>
-              <Stack.Navigator
-                initialRouteName="Home">
+          <IntlProvider locale="fr" messages={messages.fr}>
+            <GluestackUIProvider mode={colorMode}>
+              <NavigationContainer linking={linking}>
+                <Stack.Navigator
+                  initialRouteName="Home">
                 <Stack.Screen
                   name="Home"
                   component={HeraultsPage}
@@ -222,6 +236,7 @@ export default function App() {
               <Menu />
             </NavigationContainer>
           </GluestackUIProvider>
+        </IntlProvider>
         </ThemeContext.Provider>
       </MenuContext.Provider>
     </>
