@@ -5,7 +5,7 @@ export const ConventionHome = () => {
       const navigation = useNavigation();
     return <ScrollView className="font-serif">
     <ImageBackground source={require("../../assets/affiche2.jpg")} style={{ width: '100%', height: '100vh', position: 'relative' }} className="hero-gradient min-h-screen flex items-center justify-center text-center" resizeMode="cover">
-        <div className="relative z-10 bg-primary-900/70 md:bg-primary-700/90 p-14 max-w-4xl md:rounded-3xl min-h-screen md:min-h-0 flex flex-col items-center justify-center md:mt-16">
+        <div className="relative z-10 bg-primary-900/60 md:bg-primary-700/90 p-14 max-w-4xl md:rounded-3xl min-h-screen md:min-h-0 flex flex-col items-center justify-center md:mt-16">
             <h2 className="text-[#FFA400] text-lg md:text-xl font-semibold tracking-[0.3em] uppercase mb-4 font-sans">Évènement 2026</h2>
             <h1 className="text-5xl md:text-8xl font-bold mb-6 text-[#F0F4F6] leading-tight grenze">Le Week-end <br className="hidden md:block" /> des Héraults</h1>
             <div className="w-24 h-1 bg-[#FFA400] mx-auto mb-8"></div>
