@@ -143,7 +143,6 @@ export default function App() {
         m.content = "notranslate";
         document.head.appendChild(m);
       }
-      Object.assign(navigator, { language: 'fr', languages: ['fr-FR','fr'] });
     }
   }, []);
 
