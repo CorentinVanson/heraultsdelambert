@@ -25,7 +25,7 @@ export const ConventionInfosPratiques = () => {
                     <div className="grid md:grid-cols-3 gap-6 mb-10">
                         <div className="p-6 border border-gray-100 rounded-2xl bg-gray-50">
                             <h4 className="font-bold text-[#5D8598] mb-2 uppercase text-xs tracking-widest">Samedi Midi</h4>
-                            <p className="text-sm font-semibold">Plat du jour & dessert</p>
+                            <p className="text-sm font-semibold">Plat du jour</p>
                         </div>
                         <div className="p-6 border border-gray-100 rounded-2xl bg-gray-50">
                             <h4 className="font-bold text-[#5D8598] mb-2 uppercase text-xs tracking-widest">Samedi Soir</h4>
