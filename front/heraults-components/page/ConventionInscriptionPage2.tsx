@@ -196,7 +196,7 @@ export const ConventionInscriptionPage2 = () => {
                                 {
                                     loading ? <SelectItem label="Chargement des activités..." value="" isDisabled /> : 
                                         !selectedDay ? <SelectItem label="Choisissez d'abord un jour" value="" isDisabled /> :
-                                            games.length > 0 ? games.filter(game => game.dateStart.startsWith(selectedDay)).map(game => {
+                                            games.length > 0 ? games.filter(game => game.dateStart?.startsWith(selectedDay)).map(game => {
                                                 return <SelectItem key={game.id} value={String(game.id)} isDisabled={game.players.length >= game.numberOfPlayers} label={`${game.name} (${game.players.length} inscrits) ${game.players.length >= game.numberOfPlayers ? ' - COMPLET' : ''}`}>
                                                     {game.name} ({game.players.length} inscrits) {game.players.length >= game.numberOfPlayers ? ' - COMPLET' : ''}
                                                 </SelectItem>

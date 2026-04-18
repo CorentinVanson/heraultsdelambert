@@ -5,12 +5,12 @@ export const listGames = defineCachedFunction(async () => {
   const sheets = google.sheets({version: 'v4', auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1IS83je0Jrq_Z_YYZAslgAveBgSIHgo_qA_1Kqvuoxtw',
-    range: 'Parties!A3:H40',
+    range: 'Parties!A3:H120',
   });
   const sheets2 = google.sheets({version: 'v4', auth});
   const resPlayers = await sheets2.spreadsheets.values.get({
     spreadsheetId: '1IS83je0Jrq_Z_YYZAslgAveBgSIHgo_qA_1Kqvuoxtw',
-    range: 'Inscription!B3:B1000',
+    range: 'Inscription!B3:B3000',
   });
   const rows = res.data.values;
   const players = resPlayers.data.values;
