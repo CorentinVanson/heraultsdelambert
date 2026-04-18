@@ -518,7 +518,7 @@ export const ConventionInscriptionPage2 = () => {
                         <span>🛍️</span> Inscription Brocante (Bientôt disponible)
                     </h2>   
                   </div>     
-                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à la brocante, clique sur le bouton ci-dessous.</p>
+                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à la brocante, clique sur le bouton ci-dessous .</p>
                     <a
                         className="btn-primary inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest opacity-50 cursor-not-allowed pointer-events-none"
                     >
