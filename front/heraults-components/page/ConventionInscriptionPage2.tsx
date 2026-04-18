@@ -537,7 +537,7 @@ export const ConventionInscriptionPage2 = () => {
                         <span>🎲</span> Inscription Aleades (Bientôt disponible)
                     </h2>   
                   </div>     
-                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à une activité organisée par Aleades, c'est ici!.</p>
+                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à une activité organisée par Aleades, c'est ici !</p>
                     <Button
                         isDisabled={true}
                         action="secondary"
