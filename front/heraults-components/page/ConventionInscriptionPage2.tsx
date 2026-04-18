@@ -19,6 +19,7 @@ export const ConventionInscriptionPage2 = () => {
   const [reloadGames, setReloadGames] = useState(0);
 
     const [isPseudoInvalid, setIsPseudoInvalid] = useState(false)
+    const [isPseudoInvalid2, setIsPseudoInvalid2] = useState(false)
     const [pseudoInputValue, setPseudoInputValue] = useState<string>()
     const [isMailInvalid, setIsMailInvalid] = useState(false)
     const [mailInputValue, setMailInputValue] = useState<string>()
@@ -64,7 +65,7 @@ export const ConventionInscriptionPage2 = () => {
     useEffect(() => {
         getGames().then(games => setGames(games)).finally(() => setLoading(false));
     }, [reloadGames]);
-
+    console.log(selectedActivity);
     return <ScrollView className="font-serif">
       <main id="page-registration" className="hidden-page">
         <section className="pt-48 pb-16 px-4 bg-[#273840]">
@@ -95,7 +96,7 @@ export const ConventionInscriptionPage2 = () => {
                                     type="text"
                                     placeholder="Pseudo"
                                     value={pseudoInputValue}
-                                    onChangeText={(text) => setPseudoInputValue(text)}
+                                    onChangeText={(text) => { setPseudoInputValue(text); setIsPseudoInvalid(false); }}
                                 />
                             </Input>
                             <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
@@ -109,7 +110,7 @@ export const ConventionInscriptionPage2 = () => {
                             <FormControlLabel className="[&_div]:text-xs [&_div]:uppercase [&_div]:tracking-widest [&_div]:text-[#5D8598] [&_div]:font-bold">
                                 <FormControlLabelText>Jour de présence</FormControlLabelText>
                             </FormControlLabel>
-                            <Select className="select-input-field bg-[#273840]" onValueChange={(value) => setSelectedDay(value)}>
+                            <Select className="select-input-field bg-[#273840]" onValueChange={(value) => { setSelectedDay(value); setIsDayInvalid(false); setSelectedActivity(''); }}>
                                 <SelectTrigger>
                                     <SelectInput placeholder="Choisissez un jour" className="flex-1" />
                                     <SelectIcon className="mr-3" as={ChevronDownIcon} />
@@ -143,7 +144,7 @@ export const ConventionInscriptionPage2 = () => {
                                 type="text"
                                 placeholder="Mail"
                                 value={mailInputValue}
-                                onChangeText={(text) => setMailInputValue(text)}
+                                onChangeText={(text) => { setMailInputValue(text); setIsMailInvalid(false); }}
                             />
                         </Input>
                         <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
@@ -168,7 +169,7 @@ export const ConventionInscriptionPage2 = () => {
                                 type="text"
                                 placeholder="Téléphone"
                                 value={phoneInputValue}
-                                onChangeText={(text) => setPhoneInputValue(text)}
+                                onChangeText={(text) => { setPhoneInputValue(text); setIsPhoneInvalid(false); }}
                             />
                         </Input>
                         <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
@@ -185,7 +186,7 @@ export const ConventionInscriptionPage2 = () => {
                         <FormControlLabel className="[&_div]:text-xs [&_div]:uppercase [&_div]:tracking-widest [&_div]:text-[#5D8598] [&_div]:font-bold mt-4">
                             <FormControlLabelText>Activité</FormControlLabelText>
                         </FormControlLabel>
-                        <Select className="select-input-field bg-[#273840]" selectedValue={selectedActivity} onValueChange={(value) => setSelectedActivity(value)}>
+                        <Select className="select-input-field bg-[#273840]" selectedValue={selectedActivity || null} onValueChange={(value) => { setSelectedActivity(value); setIsActivityInvalid(false); }}>
                             <SelectTrigger>
                                 <SelectInput placeholder="Choisissez une activité" className="flex-1" />
                                 <SelectIcon className="mr-3" as={ChevronDownIcon} />
@@ -268,7 +269,7 @@ export const ConventionInscriptionPage2 = () => {
                         <ButtonText>Confirmer l'inscription</ButtonText>
                     </Button>
                     <div className={`bg-white/5 border border-green-400 p-6 mt-4 rounded-xl ${!isSuccess ? 'hidden' : ''}`}>
-                        <p id="reg-summary-text" className="text-sm text-[#F0F4F6]">Inscription confirmée pour {games.find(g => g.id === Number(selectedActivity))?.name}!</p>
+                        <p id="reg-summary-text" className="text-xl text-[#F0F4F6]">Inscription confirmée pour {games.find(g => g.id === Number(selectedActivity))?.name}!</p>
                     </div>
                 </div>
 
@@ -281,7 +282,7 @@ export const ConventionInscriptionPage2 = () => {
                   </div>
                     <form>
                         <FormControl
-                            isInvalid={isPseudoInvalid}
+                            isInvalid={isPseudoInvalid2}
                             size="md"
                             isDisabled={false}
                             isReadOnly={false}
@@ -295,13 +296,13 @@ export const ConventionInscriptionPage2 = () => {
                                     type="text"
                                     placeholder="Pseudo"
                                     value={pseudoInputValue}
-                                    onChangeText={(text) => setPseudoInputValue(text)}
+                                    onChangeText={(text) => { setPseudoInputValue(text); setIsPseudoInvalid(false); }}
                                 />
                             </Input>
                             <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
                                 <FormControlErrorIcon as={AlertCircleIcon} />
                                 <FormControlErrorText>
-                                    Le pseudo est obligatoire, et doit être unique pour chaque activité
+                                    Le pseudo est obligatoire
                                 </FormControlErrorText>
                             </FormControlError>
                         </FormControl>
@@ -320,7 +321,7 @@ export const ConventionInscriptionPage2 = () => {
                                     type="text"
                                     placeholder="Mail"
                                     value={mailInputValue}
-                                    onChangeText={(text) => setMailInputValue(text)}
+                                    onChangeText={(text) => { setMailInputValue(text); setIsMailInvalid(false); }}
                                 />
                             </Input>
                             <FormControlError className="[&_div]:text-red-400 [&_svg]:text-red-400">
@@ -463,11 +464,11 @@ export const ConventionInscriptionPage2 = () => {
                             <Button isDisabled={!isFormCorrect()} action="secondary" className="w-full py-4 rounded-xl font-bold uppercase tracking-widest shadow-xl" onPress={async () => {
                                 setIsFoodSuccess(false);
                                 let invalid = false;
-                                if (!pseudoInputValue || games.find(g => g.id === Number(selectedActivity))?.players.includes(pseudoInputValue)) {
+                                if (!pseudoInputValue) {
                                     invalid = true;
-                                    setIsPseudoInvalid(true)
+                                    setIsPseudoInvalid2(true)
                                 } else {
-                                    setIsPseudoInvalid(false)
+                                    setIsPseudoInvalid2(false)
                                 }
                                 if (!mailInputValue || !mailInputValue?.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
                                     invalid = true;
@@ -494,7 +495,7 @@ export const ConventionInscriptionPage2 = () => {
                             }}>Réserver</Button>
                             
                             <div className={`bg-white/5 border border-green-400 p-6 mt-4 rounded-xl ${!isFoodSuccess ? 'hidden' : ''}`}>
-                                <p id="reg-summary-text" className="text-sm text-[#F0F4F6]">Inscription confirmée pour {pseudoInputValue}!</p>
+                                <p id="reg-summary-text" className="text-xl text-[#F0F4F6]">Inscription confirmée pour {pseudoInputValue}!</p>
                             </div>
                         </div>
                     </form>
