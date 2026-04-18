@@ -78,9 +78,7 @@ const InscriptionWrapper = () => {
     }
   }, [route.params]);
 
-  if (showForm) {
-    return <ConventionInscriptionPage2 />;
-  }
+  return <ConventionInscriptionPage2 />;
 
   return (
     <ScrollView className="font-serif">
