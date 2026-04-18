@@ -222,7 +222,7 @@ export const ConventionInscriptionPage2 = () => {
 
                     <div id="reg-summary-box" className={`bg-white/5 border border-[#5D8598]/20 p-6 mt-4 rounded-xl ${!selectedActivity ? 'hidden' : ''}`}>
                         <div className="flex justify-between items-start mb-4">
-                            <h4 id="reg-summary-title" className="text-[#FFA400] font-bold mb-2 text-sm uppercase">{games.find(g => g.id === Number(selectedActivity))?.name} - {games.find(g => g.id === Number(selectedActivity))?.numberOfPlayers} Places - {games.find(g => g.id === Number(selectedActivity))?.timeStart} à {games.find(g => g.id === Number(selectedActivity))?.timeEnd} {(games.find(g => g.id === Number(selectedActivity))?.minNumberOfPlayers ?? 0) > 0 ? ` - minimum ${games.find(g => g.id === Number(selectedActivity))?.minNumberOfPlayers} joueurs` : ''}</h4>
+                            <h4 id="reg-summary-title" className="text-[#FFA400] font-bold mb-2 text-sm uppercase">{games.find(g => g.id === Number(selectedActivity))?.name} - {games.find(g => g.id === Number(selectedActivity))?.numberOfPlayers} Places - {games.find(g => g.id === Number(selectedActivity))?.timeStart} à {games.find(g => g.id === Number(selectedActivity))?.timeEnd} {(games.find(g => g.id === Number(selectedActivity))?.minNumberOfPlayers ?? 0) > 1 ? ` - minimum ${games.find(g => g.id === Number(selectedActivity))?.minNumberOfPlayers} joueurs` : ''}</h4>
                             <span className="price-badge">{games.find(g => g.id === Number(selectedActivity))?.price}€</span>
                         </div>
                         <p className="text-sm text-[#F0F4F6]/60 italic mb-6">Joueurs inscrits : {games.find(g => g.id === Number(selectedActivity))?.players?.join(', ')}</p>
@@ -280,7 +280,7 @@ export const ConventionInscriptionPage2 = () => {
                         <ButtonText>Confirmer l'inscription</ButtonText>
                     </Button>
                     <div className={`bg-white/5 border border-green-400 p-6 mt-4 rounded-xl ${!isSuccess ? 'hidden' : ''}`}>
-                        <p id="reg-summary-text" className="text-xl text-[#F0F4F6]">Inscription confirmée pour {games.find(g => g.id === Number(confirmedSelectedActivity))?.name}!</p>
+                        <p id="reg-summary-text" className="text-xl text-[#F0F4F6]">Inscription confirmée pour {games.find(g => g.id === Number(confirmedSelectedActivity))?.name} !</p>
                     </div>
                 </div>
 
