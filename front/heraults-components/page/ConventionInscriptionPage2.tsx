@@ -534,16 +534,16 @@ export const ConventionInscriptionPage2 = () => {
                 <div className="card-glass p-8 md:p-12 rounded-[2rem] border-l-4 border-[#FFA400]">
                   <div className="flex justify-between items-start mb-8">
                     <h2 className="text-2xl font-bold flex items-center gap-3 text-[#FFA400]">
-                        <span>🎲</span> Inscription Aléadés (Bientôt disponible)
+                        <span>🎲</span> Inscription Aleades (Bientôt disponible)
                     </h2>   
                   </div>     
-                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à une activité organisée par Aléadés, c'est ici!.</p>
+                    <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à une activité organisée par Aleades, c'est ici!.</p>
                     <Button
                         isDisabled={true}
                         action="secondary"
                         className="inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest"
                     >
-                        Ouvrir l'inscription Aléadés
+                        Ouvrir l'inscription Aleades
                     </Button>
                 </div>
             </div>
