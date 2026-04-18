@@ -70,7 +70,7 @@ const HeraultsEvenementsFold = () => {
             <h2 className="grenze text-6xl mb-4">La Convention</h2>
             <p className="text-lg">Chaque année, nous organisons une grande convention de jeu de rôle, avec des invités, des exposants et des parties uniques. Un rendez-vous incontournable pour la communauté.</p>
             <div className="mt-6">
-              <Button className="bg-herault-bg-light p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Inscription')}>
+              <Button className="bg-herault-bg-light p-3 rounded-lg font-bold text-lg" onPress={() => navigation.navigate('Convention')}>
                 <ButtonText>Inscriptions Convention</ButtonText>
               </Button>
             </div>
