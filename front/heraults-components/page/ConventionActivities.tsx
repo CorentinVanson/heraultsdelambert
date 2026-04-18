@@ -127,7 +127,6 @@ export const ConventionActivities = () => {
                     <p className="mb-8 text-gray-600">Toutes les activités se font exclusivement sur préinscription via nos formulaires en ligne.</p>
                     <div className="flex flex-wrap gap-4 justify-center">
                         <Link className="btn-primary px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm" onPress={() => navigation.navigate('Inscription')}>Inscrivez-vous !</Link>
-                        <Link className="btn-secondary border-2 border-[#273840] px-8 py-4 rounded-xl font-bold uppercase tracking-widest text-sm" onPress={() => navigation.navigate('Inscription')}>Formulaire Repas</Link>
                     </div>
                     <p className="mt-8 text-xs text-gray-400 font-light">Le paiement des activités payantes s'effectuera directement sur place.</p>
                 </div>
