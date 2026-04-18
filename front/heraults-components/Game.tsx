@@ -8,6 +8,8 @@ export type GameDto = {
     dateStart: string,
     timeStart: string,
     timeEnd: string,
+    price: number,
+    minNumberOfPlayers: number,
     numberOfPlayers: number,
     MJName: string,
     imgUrl: string,
