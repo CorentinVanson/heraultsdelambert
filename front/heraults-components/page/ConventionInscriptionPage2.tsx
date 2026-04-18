@@ -515,23 +515,17 @@ export const ConventionInscriptionPage2 = () => {
                 <div className="card-glass p-8 md:p-12 rounded-[2rem] border-l-4 border-[#FFA400] mb-12">
                   <div className="flex justify-between items-start mb-8">
                     <h2 className="text-2xl font-bold flex items-center gap-3 text-[#FFA400]">
-                        <span>🛍️</span> Inscription Brocante
+                        <span>🛍️</span> Inscription Brocante (Bientôt disponible)
                     </h2>   
                   </div>     
                     <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à la brocante, clique sur le bouton ci-dessous.</p>
                     <a
-                        href="https://docs.google.com/spreadsheets/d/125_VK08Ps7NH1G_2b5ZGFmETUI37H1MJ/edit?usp=sharing&ouid=114008693847154180703&rtpof=true&sd=true"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn-primary inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest"
+                        className="btn-primary inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest opacity-50 cursor-not-allowed pointer-events-none"
                     >
                         Ouvrir l'inscription brocante
                     </a>
                     <a
-                        href="https://docs.google.com/document/d/1yJ__YHGmezzKVJO4fUDOYWibs8uhclT0cAXlzG21Uig/edit?usp=sharing"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn-secondary inline-flex items-center justify-center w-full py-3 mt-2 rounded-xl font-bold uppercase tracking-widest border border-[#FFA400] text-[#FFA400] hover:bg-[#FFA400]/10"
+                        className="btn-secondary inline-flex items-center justify-center w-full py-3 mt-2 rounded-xl font-bold uppercase tracking-widest border border-[#FFA400] text-[#FFA400] hover:bg-[#FFA400]/10 opacity-50 cursor-not-allowed pointer-events-none"
                     >
                         Contrat de la brocante
                     </a>
