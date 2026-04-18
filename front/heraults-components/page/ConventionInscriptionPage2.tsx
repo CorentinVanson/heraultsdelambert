@@ -467,7 +467,7 @@ export const ConventionInscriptionPage2 = () => {
                                     <CheckboxIndicator>
                                     <CheckboxIcon as={CheckIcon} />
                                     </CheckboxIndicator>
-                                    <span className="text-white">Camembert BBQ (+3,5€)</span>
+                                    <span className="text-white">(Option) Camembert BBQ (+3,5€)</span>
                                 </Checkbox>
                                 </label>
                             </div>
