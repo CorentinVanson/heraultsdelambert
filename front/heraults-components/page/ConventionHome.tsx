@@ -103,7 +103,7 @@ export const ConventionHome = () => {
                     <ul className="space-y-6">
                         <li>
                             <span className="block font-bold text-[#5D8598] text-sm uppercase">Samedi 23 mai</span>
-                            <span className="text-lg">10h00 — Jusqu'au bout</span>
+                            <span className="text-lg">10h00 — Jusqu'à la fin des activités</span>
                         </li>
                         <li>
                             <span className="block font-bold text-[#5D8598] text-sm uppercase">Dimanche 24 mai</span>
