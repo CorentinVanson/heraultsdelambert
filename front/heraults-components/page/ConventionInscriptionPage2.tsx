@@ -223,7 +223,7 @@ export const ConventionInscriptionPage2 = () => {
                     <div id="reg-summary-box" className={`bg-white/5 border border-[#5D8598]/20 p-6 mt-4 rounded-xl ${!selectedActivity ? 'hidden' : ''}`}>
                         <div className="flex justify-between items-start mb-4">
                             <h4 id="reg-summary-title" className="text-[#FFA400] font-bold mb-2 text-sm uppercase">{games.find(g => g.id === Number(selectedActivity))?.name} - {games.find(g => g.id === Number(selectedActivity))?.numberOfPlayers} Places - {games.find(g => g.id === Number(selectedActivity))?.timeStart} à {games.find(g => g.id === Number(selectedActivity))?.timeEnd} {(games.find(g => g.id === Number(selectedActivity))?.minNumberOfPlayers ?? 0) > 1 ? ` - minimum ${games.find(g => g.id === Number(selectedActivity))?.minNumberOfPlayers} joueurs` : ''}</h4>
-                            <span className="price-badge">{games.find(g => g.id === Number(selectedActivity))?.price}€</span>
+                            <span className="price-badge">{(games.find(g => g.id === Number(selectedActivity))?.price ?? 0) > 0 ? games.find(g => g.id === Number(selectedActivity))?.price + '€' : 'GRATUIT'}</span>
                         </div>
                         <p className="text-sm text-[#F0F4F6]/60 italic mb-6">Joueurs inscrits : {games.find(g => g.id === Number(selectedActivity))?.players?.join(', ')}</p>
                         <p id="reg-summary-text" className="text-sm text-[#F0F4F6]/80 leading-relaxed">{games.find(g => g.id === Number(selectedActivity))?.description}</p>
