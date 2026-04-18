@@ -54,7 +54,7 @@ export const Menu = () => {
                         <div>
                             <span>BBQ classique : Chipolatas, Merguez, Brochette de poulet</span>
                             <p className="text-[10px] text-gray-400">Allergènes (Chipolatas, Merguez): gluten, lait, soja</p>
-                            <p className="text-[10px] text-gray-400">Allergènes (Brochette de poulet): curry, moutarde, miel</p>
+                            <p className="text-[10px] text-gray-400">Allergènes (Brochette de poulet): curry, céleri, moutarde, miel</p>
                         </div>
                         <div>
                             <span>BBQ végétarien : Saucisse végétarienne</span>
