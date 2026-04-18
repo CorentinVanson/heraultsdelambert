@@ -33,6 +33,7 @@ export const ConventionInscriptionPage2 = () => {
     const [saturdayBagnat, setSaturdayBagnat] = useState<string>("");
     const [saturdaySaucisse, setSaturdaySaucisse] = useState({ choice1: false, choice2: false, choice3: false });
     const [saturdayMerguez, setSaturdayMerguez] = useState({ choice1: false, choice2: false, choice3: false });
+    const [saturdayBrochette, setSaturdayBrochette] = useState({ choice1: false, choice2: false, choice3: false });
     const [saturdayVege, setSaturdayVege] = useState({ choice1: false, choice2: false, choice3: false });
     const [sundayMain, setSundayMain] = useState<string>("");
     const [sundayCamembert, setSundayCamembert] = useState(false);
@@ -48,6 +49,7 @@ export const ConventionInscriptionPage2 = () => {
         setSaturdayBagnat("");
         setSaturdaySaucisse({ choice1: false, choice2: false, choice3: false });
         setSaturdayMerguez({ choice1: false, choice2: false, choice3: false });
+        setSaturdayBrochette({ choice1: false, choice2: false, choice3: false });
         setSaturdayVege({ choice1: false, choice2: false, choice3: false });
         setSundayMain("");
         setSundayCamembert(false);
@@ -64,7 +66,7 @@ export const ConventionInscriptionPage2 = () => {
             !loading &&
             (includeSaturdayMidday || includeSaturdayEvening || includeSunday) &&
             (!includeSaturdayMidday || saturdayBagnat) &&
-            (!includeSaturdayEvening || ((saturdaySaucisse.choice1 || saturdayMerguez.choice1 || saturdayVege.choice1) && (saturdaySaucisse.choice2 || saturdayMerguez.choice2 || saturdayVege.choice2))) &&
+            (!includeSaturdayEvening || ((saturdaySaucisse.choice1 || saturdayMerguez.choice1 || saturdayBrochette.choice1 || saturdayVege.choice1) && (saturdaySaucisse.choice2 || saturdayMerguez.choice2 || saturdayBrochette.choice2 || saturdayVege.choice2))) &&
             (!includeSunday || sundayMain)
         ) as boolean;
     }
@@ -395,14 +397,14 @@ export const ConventionInscriptionPage2 = () => {
                             {includeSaturdayEvening && (
                                 <div className="bg-white/5 p-4 rounded-xl">
                                 <div className="mb-2 text-sm font-bold text-[#FFA400]">Samedi Soir - 8€ - 2 viandes gratuites, 3ème (+2€)</div>
-                                {['saucisse','merguez','saucisse végé'].map((type) => {
-                                    const state = type === 'saucisse' ? saturdaySaucisse : type === 'merguez' ? saturdayMerguez : saturdayVege;
-                                    const setState = type === 'saucisse' ? setSaturdaySaucisse : type === 'merguez' ? setSaturdayMerguez : setSaturdayVege;
+                                {['saucisse','merguez', 'brochette', 'saucisse végé'].map((type) => {
+                                    const state = type === 'saucisse' ? saturdaySaucisse : type === 'merguez' ? saturdayMerguez : type === 'brochette' ? saturdayBrochette : saturdayVege;
+                                    const setState = type === 'saucisse' ? setSaturdaySaucisse : type === 'merguez' ? setSaturdayMerguez : type === 'brochette' ? setSaturdayBrochette : setSaturdayVege;
 
                                     const usedChoices = {
-                                    choice1: saturdaySaucisse.choice1 || saturdayMerguez.choice1 || saturdayVege.choice1,
-                                    choice2: saturdaySaucisse.choice2 || saturdayMerguez.choice2 || saturdayVege.choice2,
-                                    choice3: saturdaySaucisse.choice3 || saturdayMerguez.choice3 || saturdayVege.choice3,
+                                    choice1: saturdaySaucisse.choice1 || saturdayMerguez.choice1 || saturdayBrochette.choice1 || saturdayVege.choice1,
+                                    choice2: saturdaySaucisse.choice2 || saturdayMerguez.choice2 || saturdayBrochette.choice2 || saturdayVege.choice2,
+                                    choice3: saturdaySaucisse.choice3 || saturdayMerguez.choice3 || saturdayBrochette.choice3 || saturdayVege.choice3,
                                     };
 
                                     return (
@@ -490,13 +492,13 @@ export const ConventionInscriptionPage2 = () => {
                                 if(invalid) {return}
                 
                                 setLoading(true);
-                                const saturdayChoices = {mergez: saturdayMerguez, saucisse: saturdaySaucisse, vege: saturdayVege};
+                                const saturdayChoices = {mergez: saturdayMerguez, saucisse: saturdaySaucisse, brochette: saturdayBrochette, vege: saturdayVege};
                                 await addFood({ 
                                     pseudo: pseudoInputValue, 
                                     mail: mailInputValue, 
                                     food: { 
                                         saturdayMidday: saturdayBagnat, 
-                                        saturdayEvening: [Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'vege'].choice1).map(key => key), Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'vege'].choice2).map(key => key), Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'vege'].choice3).map(key => key)].flat(),
+                                        saturdayEvening: [Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'brochette' | 'vege'].choice1).map(key => key), Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'brochette' | 'vege'].choice2).map(key => key), Object.keys(saturdayChoices).filter(key => saturdayChoices[key as 'mergez' | 'saucisse' | 'brochette' | 'vege'].choice3).map(key => key)].flat(),
                                         sundayMidday: sundayMain ? [sundayMain, sundayCamembert ? 'camembert' : null].filter(Boolean) : undefined
                                     } 
                                 });
