@@ -26,12 +26,21 @@ export const Menu = () => {
                         <span className="text-xs font-bold text-[#5D8598] bg-gray-50 px-2 py-1 rounded">9 €</span>
                     </div>
                     <p className="font-semibold text-sm mb-1">Menu "Le Brave"</p>
-                    <p className="text-gray-600 text-sm italic mb-3 leading-relaxed">
-                        Pan bagnat au thon <br/>
-                        Pan bagnat au poulet au curry<br/>
-                        Pan bagnat végétarien <br/>
-                    </p>
-                    <p className="text-[10px] text-gray-400">Allergènes : .</p>
+                    <div className="text-gray-600 text-sm italic mb-3 leading-relaxed">
+                        <div>
+                            <span>Pan bagnat au thon</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : gluten, poisson, oeuf, moutarde</p>
+
+                        </div>
+                        <div>
+                            <span>Pan bagnat au poulet au curry</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : gluten, oeuf, moutarde, celeri, lait</p>
+                        </div>
+                        <div>
+                            <span>Pan bagnat végétarien</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : gluten, lait</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-[#5D8598]">
@@ -40,12 +49,22 @@ export const Menu = () => {
                         <span className="text-xs font-bold text-[#5D8598] bg-gray-50 px-2 py-1 rounded">8 €</span>
                     </div>
                     <p className="font-semibold text-sm mb-1">Formule "Nocturne"</p>
-                    <p className="text-gray-600 text-sm italic mb-3 leading-relaxed">
-                        BBQ classique : Chipolatas, Merguez, Brochette de poulet <br/>
-                        BBQ végétarien : Saucisse végétarienne <br/>
-                        Assortiment de salades et crudités diverses <br/>
-                    </p>
-                    <p className="text-[10px] text-gray-400">Allergènes : .</p>
+                    
+                    <div className="text-gray-600 text-sm italic mb-3 leading-relaxed">
+                        <div>
+                            <span>BBQ classique : Chipolatas, Merguez, Brochette de poulet</span>
+                            <p className="text-[10px] text-gray-400">Allergènes (Chipolatas, Merguez): gluten, lait, soja</p>
+                            <p className="text-[10px] text-gray-400">Allergènes (Brochette de poulet):</p>
+                        </div>
+                        <div>
+                            <span>BBQ végétarien : Saucisse végétarienne</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : soja, sésame, gluten</p>
+                        </div>
+                        <div>
+                            <span>Assortiment de salades et crudités diverses</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : gluten, fruit à coque, lait, arachide, soja</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-[#FFA400]">
@@ -54,13 +73,25 @@ export const Menu = () => {
                         <span className="text-xs font-bold text-[#5D8598] bg-gray-50 px-2 py-1 rounded">9 €</span>
                     </div>
                     <p className="font-semibold text-sm mb-1">Brunch "Le Repos du Hérault"</p>
-                    <p className="text-gray-600 text-sm italic mb-3 leading-relaxed">
-                        Tenders de poulet <br/>
-                        Nuggets végétariens <br/>
-                        Pomme de terre au four et sa crème fraiche <br/>
-                        Camembert au BBQ (supplément à 3.50 €) <br/>
-                    </p>
-                    <p className="text-[10px] text-gray-400">Allergènes : .</p>
+                    <div className="text-gray-600 text-sm italic mb-3 leading-relaxed">
+                        <div>
+                            <span>Tenders de poulet</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : gluten, oeuf, lait</p>
+
+                        </div>
+                        <div>
+                            <span>Nuggets végétariens</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : soja, gluten, lait, oeuf</p>
+                        </div>
+                        <div>
+                            <span>Pomme de terre au four et sa crème fraiche</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : lait, oeuf, moutarde, oeuf</p>
+                        </div>
+                        <div>
+                            <span>Camembert au BBQ (supplément à 3.50 €)</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : lait</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="relative pl-6 border-l-4 border-[#FFA400]">
@@ -68,13 +99,22 @@ export const Menu = () => {
                         <h3 className="font-bold text-xl uppercase tracking-tight">Pendant tout le week-end</h3>
                         <span className="text-xs font-bold text-[#5D8598] bg-gray-50 px-2 py-1 rounded">Variable</span>
                     </div>
-                    <p className="text-gray-600 text-sm italic mb-3 leading-relaxed">
-                        Cookies maison (chocolat, chocolat noisette praliné) <br/>
-                        Bière pression <br/>
-                        Hypocras (Boisson médiévale à base de vin rouge) <br/>
-                        Soft (Coca, Coca zéro, Schweppes agrum, Ice tea, ean, thé, café) <br/>
-                    </p>
-                    <p className="text-[10px] text-gray-400">Allergènes : .</p>
+                    <div className="text-gray-600 text-sm italic mb-3 leading-relaxed">
+                        <div>
+                            <span>Cookies maison (chocolat, chocolat noisette praliné)</span>
+                            <p className="text-[10px] text-gray-400">Allergènes : fruit à coques, gluten, lait, oeuf, soja, arachides.</p>
+
+                        </div>
+                        <div>
+                            <span>Bière pression</span>
+                        </div>
+                        <div>
+                            <span>Hypocras (Boisson médiévale à base de vin rouge)</span>
+                        </div>
+                        <div>
+                            <span>Soft (Coca, Coca zéro, Schweppes agrum, Ice tea, ean, thé, café)</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="bg-amber-50 p-4 rounded-xl text-xs text-amber-800 leading-relaxed border border-amber-100 italic">
