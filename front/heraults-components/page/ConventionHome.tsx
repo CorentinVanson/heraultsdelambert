@@ -120,6 +120,7 @@ export const ConventionHome = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-6 uppercase tracking-widest font-sans">Accès</h3>
                     <div className="space-y-4 text-gray-600">
+                        <p><strong>🗺️ Adresse :</strong> Ferme du Mont Garin, 210 Rue de Verlinghem, 59130 Lambersart.</p>
                         <p><strong>🚗 Voiture :</strong> Sortie 7A/7B rocade Nord-Ouest. Parking gratuit sur place.</p>
                         <p><strong>🚌 Bus :</strong> Lignes 51, 10 ou Co3 (Arrêts Cimetière Nord / Lambersart Bourg).</p>
                         <p><strong>🚇 Métro :</strong> Ligne 2, station Lambersart Bourg (puis bus 10).</p>
