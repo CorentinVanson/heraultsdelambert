@@ -13,6 +13,7 @@ export const ConventionInscriptionPage2 = () => {
   const [selectedDay, setSelectedDay] = useState<string>('');
     const [isActivityInvalid, setIsActivityInvalid] = useState(false)
   const [selectedActivity, setSelectedActivity] = useState<string>('');
+  const [confirmedSelectedActivity, setConfirmedSelectedActivity] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isFoodSuccess, setIsFoodSuccess] = useState(false);
@@ -53,6 +54,7 @@ export const ConventionInscriptionPage2 = () => {
     }
 
     const initActivityForm = () => {
+        setConfirmedSelectedActivity(selectedActivity);
         setSelectedDay('');
         setSelectedActivity('');
     }
@@ -275,7 +277,7 @@ export const ConventionInscriptionPage2 = () => {
                         <ButtonText>Confirmer l'inscription</ButtonText>
                     </Button>
                     <div className={`bg-white/5 border border-green-400 p-6 mt-4 rounded-xl ${!isSuccess ? 'hidden' : ''}`}>
-                        <p id="reg-summary-text" className="text-xl text-[#F0F4F6]">Inscription confirmée pour {games.find(g => g.id === Number(selectedActivity))?.name}!</p>
+                        <p id="reg-summary-text" className="text-xl text-[#F0F4F6]">Inscription confirmée pour {games.find(g => g.id === Number(confirmedSelectedActivity))?.name}!</p>
                     </div>
                 </div>
 
