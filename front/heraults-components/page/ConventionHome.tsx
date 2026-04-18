@@ -63,26 +63,26 @@ export const ConventionHome = () => {
                 </div>
 
                 <div className="order-1 lg:order-2 grid grid-cols-2 gap-4 font-sans">
-                    <div className="card-glass p-8 rounded-2xl text-center">
+                    <Link className="card-glass p-8 rounded-2xl text-center" onPress={() => navigation.navigate('Convention', { screen: 'Activities' })}>
                         <span className="block text-4xl mb-4">🎲</span>
                         <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Parties JdR</h3>
                         <p className="text-xs text-[#5D8598] font-semibold">SESSIONS COURTES OU LONGUES</p>
-                    </div>
-                    <div className="card-glass p-8 rounded-2xl text-center">
+                    </Link>
+                    <Link className="card-glass p-8 rounded-2xl text-center" onPress={() => navigation.navigate('Convention', { screen: 'Activities' })}>
                         <span className="block text-4xl mb-4">🧛</span>
                         <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Grandeur nature et impro</h3>
                         <p className="text-xs text-[#5D8598] font-semibold"> VAMPIRE, LOUP GAROU, BLOOD</p>
-                    </div>
-                    <div className="card-glass p-8 rounded-2xl text-center">
+                    </Link>
+                    <Link className="card-glass p-8 rounded-2xl text-center" onPress={() => navigation.navigate('Convention', { screen: 'Activities' })}>
                         <span className="block text-4xl mb-4">♟️</span>
                         <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Jeux</h3>
                         <p className="text-xs text-[#5D8598] font-semibold">FIGURINES & PLATEAU</p>
-                    </div>
-                    <div className="card-glass p-8 rounded-2xl text-center">
+                    </Link>
+                    <Link className="card-glass p-8 rounded-2xl text-center" onPress={() => navigation.navigate('Convention', { screen: 'Activities' })}>
                         <span className="block text-4xl mb-4">🎨</span>
                         <h3 className="font-bold text-[#F0F4F6] mb-2 uppercase tracking-tighter">Ateliers</h3>
                         <p className="text-xs text-[#5D8598] font-semibold">DÉS & FIGURINES</p>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -52,6 +52,11 @@ export const ConventionInscriptionPage2 = () => {
         setSundayCamembert(false);
     }
 
+    const initActivityForm = () => {
+        setSelectedDay('');
+        setSelectedActivity('');
+    }
+
     const isFormCorrect = () => {
         return (
             !loading &&
@@ -65,7 +70,7 @@ export const ConventionInscriptionPage2 = () => {
     useEffect(() => {
         getGames().then(games => setGames(games)).finally(() => setLoading(false));
     }, [reloadGames]);
-    console.log(selectedActivity);
+
     return <ScrollView className="font-serif">
       <main id="page-registration" className="hidden-page">
         <section className="pt-48 pb-16 px-4 bg-[#273840]">
@@ -110,7 +115,7 @@ export const ConventionInscriptionPage2 = () => {
                             <FormControlLabel className="[&_div]:text-xs [&_div]:uppercase [&_div]:tracking-widest [&_div]:text-[#5D8598] [&_div]:font-bold">
                                 <FormControlLabelText>Jour de présence</FormControlLabelText>
                             </FormControlLabel>
-                            <Select className="select-input-field bg-[#273840]" onValueChange={(value) => { setSelectedDay(value); setIsDayInvalid(false); setSelectedActivity(''); }}>
+                            <Select className="select-input-field bg-[#273840]" selectedValue={selectedDay || null} onValueChange={(value) => { setSelectedDay(value); setIsDayInvalid(false); setSelectedActivity(''); }}>
                                 <SelectTrigger>
                                     <SelectInput placeholder="Choisissez un jour" className="flex-1" />
                                     <SelectIcon className="mr-3" as={ChevronDownIcon} />
@@ -262,6 +267,7 @@ export const ConventionInscriptionPage2 = () => {
                         setLoading(false);
                         setIsSuccess(true);
                         setReloadGames(reloadGames + 1);
+                        initActivityForm();
                         }}
                         isDisabled={loading}
                     >

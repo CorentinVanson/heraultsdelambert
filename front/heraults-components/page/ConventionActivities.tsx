@@ -13,7 +13,7 @@ export const ConventionActivities = () => {
                 <div className="text-left mb-20">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#5D8598] border-b border-[#5D8598]/30 pb-4">Jeux de Rôle</h2>
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="card-glass p-8 rounded-2xl">
+                        <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400]">Parties Longues</h3>
                                 <span className="price-badge">5€</span>
@@ -36,8 +36,8 @@ export const ConventionActivities = () => {
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Chill</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Rêve de Dragon</span>
                             </div>
-                        </div>
-                        <div className="card-glass p-8 rounded-2xl">
+                        </Link>
+                        <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400]">Initiations</h3>
                                 <span className="price-badge">GRATUIT</span>
@@ -54,14 +54,14 @@ export const ConventionActivities = () => {
                                     <span className="font-bold text-[#F0F4F6]">D&D Stranger Things</span>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="text-left mb-20">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#5D8598] border-b border-[#5D8598]/30 pb-4">Expériences Immersives</h2>
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="card-glass p-8 rounded-2xl">
+                        <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400] mb-4">Times of Legends : Joan of Arc</h3>
                                 <span className="price-badge">GRATUIT</span>
@@ -69,8 +69,8 @@ export const ConventionActivities = () => {
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed">
                                 Incarnez Jeanne d’Arc dans un monde médiéval magnifiquement rendu. Forgez votre propre légende dans un jeu narratif où la foi et la stratégie sont vos armes. L'avenir de la France repose entre vos mains.
                             </p>
-                        </div>
-                        <div className="card-glass p-8 rounded-2xl">
+                        </Link>
+                        <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400]">Blood on the Clocktower</h3>
                                 <span className="price-badge">5€</span>
@@ -78,8 +78,8 @@ export const ConventionActivities = () => {
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed mb-4">
                                 Un village maudit, un mal qui frappe chaque nuit... Entre manipulations, révélations et retournements de situation, plongez dans une expérience sociale théâtrale intense.
                             </p>
-                        </div>
-                        <div className="card-glass p-8 rounded-2xl">
+                        </Link>
+                        <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400]">Les Nuits du Loup-Garou</h3>
                                 <span className="price-badge">GRATUIT</span>
@@ -87,8 +87,8 @@ export const ConventionActivities = () => {
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed">
                                 La nuit tombe sur Thiercelieux... Serez-vous un villageois, un loup-garou rusé ou une voyante ? Décelez les mensonges et tentez de survivre jusqu'à l'aube.
                             </p>
-                        </div>
-                        <div className="card-glass p-8 rounded-2xl">
+                        </Link>
+                        <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <div className="flex justify-between items-start mb-4">
                                 <h3 className="text-xl font-bold text-[#FFA400]">Vampire : La Mascarade</h3>
                                 <span className="price-badge">5€</span>
@@ -96,14 +96,14 @@ export const ConventionActivities = () => {
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed mb-4">
                                 Plongez dans les intrigues de la Cour de Lille avec l'association "La Mascarade". Alliances, complots et manipulations au cœur d'un univers gothique-punk.
                             </p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
                 <div className="text-left mb-20">
                     <h2 className="text-2xl md:text-3xl font-bold mb-8 text-[#5D8598] border-b border-[#5D8598]/30 pb-4">Ateliers & Brocante</h2>
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="p-8 rounded-2xl border-l-4 border-[#FFA400] card-glass">
+                        <Link className="p-8 rounded-2xl border-l-4 border-[#FFA400] card-glass" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <h3 className="text-xl font-bold text-[#F0F4F6] mb-4">Ateliers Hobby</h3>
                             <ul className="space-y-4 text-sm">
                                 <li className="flex items-center gap-3">
@@ -118,13 +118,13 @@ export const ConventionActivities = () => {
                                     <span className="price-badge">4€</span>
                                 </li>
                             </ul>
-                        </div>
-                        <div className="card-glass p-8 rounded-2xl border-l-4 border-[#5D8598]">
+                        </Link>
+                        <Link className="card-glass p-8 rounded-2xl border-l-4 border-[#5D8598]" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
                             <h3 className="text-xl font-bold text-[#F0F4F6] mb-4">La Brocante Ludique</h3>
                             <p className="text-sm text-[#F0F4F6]/80 leading-relaxed italic">
                                 Envie de faire de la place sur vos étagères ? Déposez vos jeux, nous nous occupons de la vente pour vous pendant que vous profitez du week-end !
                             </p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
