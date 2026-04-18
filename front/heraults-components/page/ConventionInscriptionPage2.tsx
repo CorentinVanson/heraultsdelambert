@@ -527,6 +527,14 @@ export const ConventionInscriptionPage2 = () => {
                     >
                         Ouvrir l'inscription brocante
                     </a>
+                    <a
+                        href="https://docs.google.com/document/d/1yJ__YHGmezzKVJO4fUDOYWibs8uhclT0cAXlzG21Uig/edit?usp=sharing"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-secondary inline-flex items-center justify-center w-full py-3 mt-2 rounded-xl font-bold uppercase tracking-widest border border-[#FFA400] text-[#FFA400] hover:bg-[#FFA400]/10"
+                    >
+                        Contrat de la brocante
+                    </a>
                 </div>
                 
                 <div className="card-glass p-8 md:p-12 rounded-[2rem] border-l-4 border-[#FFA400]">
