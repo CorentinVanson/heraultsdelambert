@@ -23,18 +23,12 @@ export const ConventionActivities = () => {
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Barbarians of Lemuria</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">L'empire des Cerisiers</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Vermine 2047</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Alien</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Jurassic Park</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Donjons & Dragons</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Les Lames du Cardinal</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Tales we don't tell</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Maléfice</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Historia</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Mutant & Mastermind</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Anime was a mistake</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Cthulhu chez les Ch'tis</span>
-                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Chill</span>
                                 <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Rêve de Dragon</span>
+                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Star Wars</span>
+                                <span className="text-[#F0F4F6] bg-[#273840] px-3 py-1 rounded-full border border-[#5D8598]/40">Kult</span>
                             </div>
                         </Link>
                         <Link className="card-glass p-8 rounded-2xl" onPress={() => navigation.navigate('Convention', { screen: 'Inscription' })}>
@@ -45,13 +39,13 @@ export const ConventionActivities = () => {
                             <p className="text-sm text-[#F0F4F6]/60 mb-6 italic">Format découverte de 1 à 2 heures.</p>
                             <div className="space-y-4">
                                 <div className="p-3 bg-[#273840]/50 rounded-lg border border-[#5D8598]/20">
-                                    <span className="font-bold text-[#F0F4F6]">The Mutants of LXX</span>
+                                    <span className="font-bold text-[#F0F4F6]">Cthulhu by Gaslight</span>
                                 </div>
                                 <div className="p-3 bg-[#273840]/50 rounded-lg border border-[#5D8598]/20">
-                                    <span className="font-bold text-[#F0F4F6]">D&D 5e</span>
+                                    <span className="font-bold text-[#F0F4F6]">D&D Village</span>
                                 </div>
                                 <div className="p-3 bg-[#273840]/50 rounded-lg border border-[#5D8598]/20">
-                                    <span className="font-bold text-[#F0F4F6]">D&D Stranger Things</span>
+                                    <span className="font-bold text-[#F0F4F6]">Et plein d'autres...</span>
                                 </div>
                             </div>
                         </Link>
