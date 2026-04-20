@@ -385,7 +385,7 @@ export const ConventionInscriptionPage2 = () => {
                                     <SelectPortal>
                                     <SelectBackdrop />
                                     <SelectContent>
-                                        <SelectItem label="Bagnat classique" value="classique" />
+                                        <SelectItem label="Bagnat thon" value="thon" />
                                         <SelectItem label="Bagnat poulet" value="poulet" />
                                         <SelectItem label="Bagnat végé" value="vege" />
                                     </SelectContent>
