@@ -522,14 +522,12 @@ export const ConventionInscriptionPage2 = () => {
                   </div>     
                     <p className="text-sm text-[#F0F4F6]/80 mb-4">Pour t'inscrire à la brocante, clique sur le bouton ci-dessous .</p>
                     <a
-                        className="btn-primary inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest opacity-50 cursor-not-allowed pointer-events-none"
+                        href=" https://www.helloasso.com/associations/heraults-de-lambert/evenements/emplacement-brocante-le-week-end-des-heraults"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-primary inline-flex items-center justify-center w-full py-3 rounded-xl font-bold uppercase tracking-widest"
                     >
-                        Ouvrir l'inscription brocante
-                    </a>
-                    <a
-                        className="btn-secondary inline-flex items-center justify-center w-full py-3 mt-2 rounded-xl font-bold uppercase tracking-widest border border-[#FFA400] text-[#FFA400] hover:bg-[#FFA400]/10 opacity-50 cursor-not-allowed pointer-events-none"
-                    >
-                        Contrat de la brocante
+                        Ouvrir l'inscription à la brocante
                     </a>
                 </div>
                 
