@@ -228,7 +228,7 @@ export const ConventionInscriptionPage2 = () => {
                             <span className="price-badge">{(games.find(g => g.id === Number(selectedActivity))?.price ?? 0) > 0 ? games.find(g => g.id === Number(selectedActivity))?.price + '€' : 'GRATUIT'}</span>
                         </div>
                         <p className="text-sm text-[#F0F4F6]/60 italic mb-6">Joueurs inscrits : {games.find(g => g.id === Number(selectedActivity))?.players?.join(', ')}</p>
-                        <p id="reg-summary-text" className="text-sm text-[#F0F4F6]/80 leading-relaxed">{games.find(g => g.id === Number(selectedActivity))?.description}</p>
+                        <p id="reg-summary-text" className="text-sm text-[#F0F4F6]/80 leading-relaxed whitespace-pre-wrap">{games.find(g => g.id === Number(selectedActivity))?.description?.replace(/\\n/g, '\n')}</p>
                     </div>
                     
                     <Button
