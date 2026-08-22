@@ -9,6 +9,7 @@ let cachedAuth = null;
  */
 export const authorizeSheet = async (event?) => {
   const { sheetCredentialsEmail, sheetCredentialsPrivateKey } = useRuntimeConfig(event);
+  const privateKey = sheetCredentialsPrivateKey.replace(/\\n/g, "\n");
 
   if(cachedAuth) {
     return cachedAuth
@@ -16,7 +17,7 @@ export const authorizeSheet = async (event?) => {
   const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: sheetCredentialsEmail,
-        private_key: sheetCredentialsPrivateKey,
+        private_key: privateKey,
       },
       scopes: SCOPES,
   });

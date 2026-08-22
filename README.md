@@ -96,7 +96,21 @@ docker-compose up --build
 Open http://localhost:3001
 
 ## Configuration
-- Les variables sensibles sont dans `bff/credentials.json` et `bff/token.json`.
+- Créez un fichier `bff/.env` à partir de l'exemple ci-dessous :
+	```env
+	NITRO_SHEET_CREDENTIALS_EMAIL=nom-du-compte@nom-du-projet.iam.gserviceaccount.com
+	NITRO_SHEET_CREDENTIALS_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\n...contenu de la clé...\n-----END PRIVATE KEY-----\n
+	```
+- Ces valeurs correspondent aux champs `client_email` et `private_key` du fichier JSON téléchargé lors de la création de la clé du compte de service. Conservez les `\n` littéraux dans le fichier `.env` : le BFF les convertit automatiquement en passages à la ligne au démarrage.
+- Ne commitez jamais `bff/.env` et ne publiez jamais la clé privée. Si une clé est exposée, supprimez-la dans GCP et créez-en une nouvelle.
+
+### Créer le compte de service Google Cloud
+1. Ouvrez [Google Cloud Console](https://console.cloud.google.com/) et sélectionnez le projet qui héberge la Google Sheet, ou créez-en un.
+2. Dans **API et services > Bibliothèque**, activez **Google Sheets API**.
+3. Dans **IAM et administration > Comptes de service**, cliquez sur **Créer un compte de service**. Donnez-lui un nom, puis terminez la création. Aucun rôle IAM supplémentaire n'est nécessaire pour accéder à une Sheet partagée directement.
+4. Ouvrez le compte créé, allez dans **Clés > Ajouter une clé > Créer une clé**, choisissez **JSON**, puis téléchargez le fichier. Ne le committez pas : utilisez uniquement ses champs `client_email` et `private_key` pour remplir `bff/.env`.
+5. Ouvrez la Google Sheet utilisée par l'application, cliquez sur **Partager**, ajoutez l'adresse `client_email` du compte de service et donnez-lui le rôle **Éditeur**. Ce rôle est requis car l'application lit et modifie les données.
+- L'identifiant de la Sheet est la partie située entre `/d/` et `/edit` dans son URL. Il est actuellement configuré dans les utilitaires du BFF ; si vous utilisez une autre Sheet, remplacez-y cet identifiant.
 - Les configurations UI sont dans `front/gluestack-ui.config.json` et `front/tailwind.config.js`.
 - Le proxy Nginx est configuré dans `nginx.conf` à la racine.
 
