@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useRoute } from '@react-navigation/native';
 import { GluestackUIProvider, SafeAreaView, ScrollView } from "./components/ui";
 import { useFonts, Grenze_600SemiBold } from '@expo-google-fonts/grenze';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { IntlProvider } from 'react-intl';
 
 const messages = {
@@ -35,7 +35,7 @@ import { ConventionInfosPratiques } from "./heraults-components/page/ConventionI
 import { ConventionActivities } from "./heraults-components/page/ConventionActivities";
 import { ConventionInscriptionPage2 } from "./heraults-components/page/ConventionInscriptionPage2";
 import { Menu, MenuContext } from "./heraults-components/Menu";
-import { Analytics } from '@vercel/analytics/react';
+import { inject, pageview } from '@vercel/analytics';
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -126,11 +126,25 @@ const linking = {
   config,
 }
 
+const trackPageView = (navigation: {
+  getCurrentRoute: () => { name: string } | undefined;
+}) => {
+  if (typeof window === "undefined") return;
+
+  const route = navigation.getCurrentRoute();
+  pageview({
+    path: route?.name,
+    route: route?.name,
+  });
+};
+
 export default function App() {
   const showBanner = false;
+  const navigationRef = useNavigationContainerRef();
 
   useEffect(() => {
     if (typeof document !== "undefined") {
+      inject({ disableAutoTrack: true });
       document.documentElement.lang = "fr";
       document.documentElement.setAttribute("translate", "no");
       document.documentElement.classList.add("notranslate");
@@ -169,12 +183,16 @@ export default function App() {
 
   return (
     <>
-      <Analytics />
       <MenuContext.Provider value={{ menuModalOpen, toggleMenuModal }}>
         <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
           <IntlProvider locale="fr" messages={messages.fr}>
             <GluestackUIProvider mode={colorMode}>
-              <NavigationContainer linking={linking}>
+              <NavigationContainer
+                ref={navigationRef}
+                linking={linking}
+                onReady={() => trackPageView(navigationRef)}
+                onStateChange={() => trackPageView(navigationRef)}
+              >
                 <Stack.Navigator
                   initialRouteName="Home">
                 <Stack.Screen
