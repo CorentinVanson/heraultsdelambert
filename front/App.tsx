@@ -35,8 +35,7 @@ import { ConventionInfosPratiques } from "./heraults-components/page/ConventionI
 import { ConventionActivities } from "./heraults-components/page/ConventionActivities";
 import { ConventionInscriptionPage2 } from "./heraults-components/page/ConventionInscriptionPage2";
 import { Menu, MenuContext } from "./heraults-components/Menu";
-import { Analytics } from "@vercel/analytics/next"
-import { A } from "@expo/html-elements";
+import { Analytics } from '@vercel/analytics/react';
 
 let defaultTheme: "dark" | "light" = "light";
 
