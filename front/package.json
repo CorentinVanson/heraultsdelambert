@@ -49,6 +49,7 @@
     "@react-navigation/native-stack": "^7.3.21",
     "@react-three/fiber": "^8.18.0",
     "@types/three": "^0.179.0",
+    "@vercel/analytics": "^2.0.1",
     "babel-plugin-module-resolver": "^5.0.2",
     "expo": "~52.0.47",
     "expo-font": "~13.0.4",

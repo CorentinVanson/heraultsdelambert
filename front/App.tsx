@@ -35,6 +35,8 @@ import { ConventionInfosPratiques } from "./heraults-components/page/ConventionI
 import { ConventionActivities } from "./heraults-components/page/ConventionActivities";
 import { ConventionInscriptionPage2 } from "./heraults-components/page/ConventionInscriptionPage2";
 import { Menu, MenuContext } from "./heraults-components/Menu";
+import { Analytics } from "@vercel/analytics/next"
+import { A } from "@expo/html-elements";
 
 let defaultTheme: "dark" | "light" = "light";
 
@@ -168,6 +170,7 @@ export default function App() {
 
   return (
     <>
+      <Analytics />
       <MenuContext.Provider value={{ menuModalOpen, toggleMenuModal }}>
         <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
           <IntlProvider locale="fr" messages={messages.fr}>
